@@ -9,17 +9,17 @@ import Foundation
 
 class EmployeeChangeGroup {
     var employeeId : Int
-    // var employee : Employee
+    var employee : Employee
     var changeGroupId : Int
-    // var changeGroup = changeGroup
+    var changeGroup: ChangeGroup
     
-    init?(employeeId : Int, /* ,employee : Employee */ changeGroupId : Int /* ,changeGroup : ChangeGroup */){
+    init?(employeeId: Int, employee : Employee, changeGroupId : Int, changeGroup : ChangeGroup){
         if employeeId < 0 || changeGroupId < 0 {
             return nil
         }
         self.employeeId = employeeId
-        // self.employee = employee
+        self.employee = employee
         self.changeGroupId = changeGroupId
-        // self.changeGroup = changeGroup
+        self.changeGroup = changeGroup
     }
 }
