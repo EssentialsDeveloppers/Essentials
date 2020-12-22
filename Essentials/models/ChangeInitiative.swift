@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChangeInitiative {
+/*struct ChangeInitiative: Codable {
     
     let id: Int
     var title: String
@@ -19,19 +19,16 @@ struct ChangeInitiative {
     var roadMaps: [String]
     var progress: String
     
-    init?(id: Int, title: String, description: String, startDate: String, endDate: String, changeGroup: [ChangeGroup]?, changesponsor: Employee?, roadmaps: [String], progress: String) {
-        if id < 0 || title.isEmpty || description.isEmpty || startDate.isEmpty || endDate.isEmpty || roadmaps.isEmpty || progress.isEmpty {
-            return nil
-        }
-        self.id = id
-        self.title = title
-        self.description = description
-        self.startDate = startDate
-        self.endDate = endDate
-        self.changeGroup = changeGroup ?? [ChangeGroup]()
-        self.changeSponsor = changesponsor
-        self.roadMaps = roadmaps
-        self.progress = progress
+    public enum CodingKeys: String, CodingKey{
+       case id = "id"
+       case title = "name"
+       case description = "description"
+       case startDate = "startDate"
+       case endDate = "endDate"
+       case changeGroup = "changeGroup"
+       case changeSponsor = "changeSponsor"
+       case roadMaps = "roadmap"
+       case progress = "progress"
     }
     
-}
+}*/
