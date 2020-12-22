@@ -9,16 +9,16 @@ import Foundation
 
 struct EmployeeOrganizationPart : Codable {
     public let employeeId: Int
-//    public let employee: Employee
+    public let employee: Employee
     public let organizationPartId: Int
-//    public let organizationParts: OrganizationPart
+    public let organizationParts: OrganizationPart
     public let type: String        
     
     public enum CodingKeys: String, CodingKey{
         case employeeId = "employeeId"
-//        case employee = "employee"
+        case employee = "employee"
         case organizationPartId = "organizationPartId"
-//        case organizationParts = "organizationParts"
+        case organizationParts = "organizationParts"
         case type = "type"
     }
 }
