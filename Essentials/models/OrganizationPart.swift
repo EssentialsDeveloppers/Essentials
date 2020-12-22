@@ -2,24 +2,22 @@
 //  OrganizationPart.swift
 //  Essentials
 //
-//  Created by Jonathan on 21/12/2020.
+//  Created by Jonathan Vanden Eynden on 21/12/2020.
 //
 
 import Foundation
 
-struct OrganizationPart {
+struct OrganizationPart : Codable{
     let id : String
     var name : String
-    // var employeeOrganizationParts : EmployeeOrganizationParts
+    //var employeeOrganizationPart : EmployeeOrganizationPart
     var type : String
     
-    init?(id : String, name: String/* ,employeeOrganizationParts : EmployeeOrganizationParts */, type : String ){
-        if id.isEmpty || name.isEmpty || type.isEmpty {
-            return nil
-        }
-        self.id = id
-        self.name = name
-        // self.employeeOrganizationParts = employeeOrganizationParts
-        self.type = type        
+    public enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case name = "name"
+        //case employeeOrganizationPart = "employeeOrganizationPart"
+        case type = "type"
     }
+    
 }

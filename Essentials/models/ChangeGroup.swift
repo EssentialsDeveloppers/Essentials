@@ -2,23 +2,20 @@
 //  ChangeGroup.swift
 //  Essentials
 //
-//  Created by Jonathan on 21/12/2020.
+//  Created by Jonathan Vanden Eynden on 21/12/2020.
 //
 
 import Foundation
 
-struct ChangeGroup {
+struct ChangeGroup : Codable {
     let id : Int
     var name : String
-    var employeeChangeGroups : [EmployeeChangeGroup]
+    //var employeeChangeGroups : [EmployeeChangeGroup]
     
-    init?(id : Int, name: String, employeeChangeGroups : [EmployeeChangeGroup]){
-        if id < 0 || name.isEmpty || employeeChangeGroups.isEmpty {
-            return nil
-        }
-        self.id = id
-        self.name = name
-        self.employeeChangeGroups = employeeChangeGroups
+    public enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case name = "name"
+        //case employeeChangeGroups = "employeeChangeGroups"
     }
 }
 
