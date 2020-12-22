@@ -7,19 +7,22 @@
 
 import Foundation
 
-struct ChangeManager: Codable {
+struct ChangeManager {
     
-    public let id: Int
-    public let firstName: String
-    public let lastName: String
-    public let email: String
-    //public let createdChangeInitiatives: [ChangeInitiative]
+    let id: Int
+    var firstName: String
+    var lastName: String
+    var email: String
+    var createdChangeInitiatives: [ChangeInitiative]
     
-    public enum CodingKeys: String, CodingKey{
-        case id = "id"
-        case firstName = "firstName"
-        case lastName = "lastName"
-        case email = "email"
-        //case createdChangeInitiatives = "createdChangeInitiatives"
+    init?(id: Int, firstName: String, lastName: String, email: String, createdChangeInitiatives: [ChangeInitiative]?) {
+        if id < 0 || firstName.isEmpty || lastName.isEmpty || email.isEmpty {
+            return nil
+        }
+        self.id = id
+        self.firstName = firstName
+        self.lastName = lastName
+        self.email = email
+        self.createdChangeInitiatives = createdChangeInitiatives ?? [ChangeInitiative]()
     }
 }

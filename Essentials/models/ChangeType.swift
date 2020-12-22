@@ -7,10 +7,13 @@
 
 import Foundation
 
-struct ChangeType : Codable {
-    public let id: Int
+struct ChangeType {
+    let id: Int
     
-    public enum CodingKeys: String, CodingKey{
-        case id = "id"
+    init?(id: Int) {
+        if id < 0 {
+            return nil
+        }
+        self.id = id
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Employee: Codable {
+struct Employee: Decodable {
     public let id: Int
     public let firstName: String
     public let lastName: String
@@ -20,4 +20,3 @@ struct Employee: Codable {
         case email = "email"
     }
 }
-
