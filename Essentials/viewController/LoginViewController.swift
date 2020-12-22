@@ -37,9 +37,13 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         if(sender.isOn){
             employeePicker.isHidden = true
             changeManagerPicker.isHidden = false
+            self.changeManagerPicker.selectRow(0, inComponent: 0, animated: true)
+            self.pickerView(self.changeManagerPicker, didSelectRow: 0, inComponent: 0)
         } else {
             employeePicker.isHidden = false
             changeManagerPicker.isHidden = true
+            self.employeePicker.selectRow(0, inComponent: 0, animated: true)
+            self.pickerView(self.employeePicker, didSelectRow: 0, inComponent: 0)
         }
     }
     
@@ -64,6 +68,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             let user = self.employees[row]
             self.selectedEmployee = user
             self.selectedChangeManager = nil
+            
         } else {
             let user = self.changeManagers[row]
             self.selectedEmployee = nil
@@ -98,6 +103,8 @@ extension LoginViewController {
             self.employeePicker.isHidden = false
             self.spinner.isHidden = true
             self.spinner.stopAnimating()
+            self.employeePicker.selectRow(0, inComponent: 0, animated: true)
+            self.pickerView(self.employeePicker, didSelectRow: 0, inComponent: 0)
         }
     }
     

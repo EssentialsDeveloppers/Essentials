@@ -10,6 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var labelName: UILabel!
+    @IBOutlet weak var labelType: UILabel!
     var employee: Employee?
     var changeManager: ChangeManager?
     var isChangeManager: Bool = false
@@ -27,7 +28,7 @@ class HomeViewController: UIViewController {
             guard let data = employee else { return }
             labelName.text = data.firstName
         }
-       
+        labelType.text = isChangeManager ? "Change Manager": "Employee"
     }
     
 }

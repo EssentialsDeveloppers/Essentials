@@ -173,7 +173,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tUM-9M-57P">
-                                <rect key="frame" x="184" y="423" width="46" height="50.5"/>
+                                <rect key="frame" x="184" y="412.5" width="46" height="71"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esA-Kj-7Zd">
                                         <rect key="frame" x="0.0" y="0.0" width="46" height="20.5"/>
@@ -181,8 +181,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfR-bp-OGF">
+                                        <rect key="frame" x="0.0" y="20.5" width="46" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewR-eh-6bn">
-                                        <rect key="frame" x="0.0" y="20.5" width="46" height="30"/>
+                                        <rect key="frame" x="0.0" y="41" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <segue destination="BYZ-38-t0r" kind="show" id="ODL-d7-9XN"/>
@@ -205,6 +211,7 @@
                     <navigationItem key="navigationItem" title="Homescreen" id="8P4-RN-1zv"/>
                     <connections>
                         <outlet property="labelName" destination="esA-Kj-7Zd" id="t96-Wv-Luk"/>
+                        <outlet property="labelType" destination="KfR-bp-OGF" id="WfD-35-ggn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oN4-yY-yP0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
