@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		393D955E2592730D00B436D7 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D955D2592730D00B436D7 /* Project.swift */; };
+		393D9561259275DE00B436D7 /* Portfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D9560259275DE00B436D7 /* Portfolio.swift */; };
+		393D95642592764500B436D7 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D95632592764500B436D7 /* Organization.swift */; };
+		393D95672592777F00B436D7 /* EmployeeOrganizationPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D95662592777F00B436D7 /* EmployeeOrganizationPart.swift */; };
 		82A01F7C2591432600D54953 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A01F7B2591432600D54953 /* AppDelegate.swift */; };
 		82A01F7E2591432600D54953 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A01F7D2591432600D54953 /* SceneDelegate.swift */; };
 		82A01F802591432600D54953 /* EmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A01F7F2591432600D54953 /* EmployeeViewController.swift */; };
@@ -34,6 +38,10 @@
 /* Begin PBXFileReference section */
 		0DE121FFFBC9F6E6CAF612E4 /* Pods_Essentials.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentials.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		148340C277215BFE4DD60B55 /* Pods-Essentials.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentials.debug.xcconfig"; path = "Target Support Files/Pods-Essentials/Pods-Essentials.debug.xcconfig"; sourceTree = "<group>"; };
+		393D955D2592730D00B436D7 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		393D9560259275DE00B436D7 /* Portfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portfolio.swift; sourceTree = "<group>"; };
+		393D95632592764500B436D7 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		393D95662592777F00B436D7 /* EmployeeOrganizationPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeOrganizationPart.swift; sourceTree = "<group>"; };
 		44D57B21EAC920253B3EAAA5 /* Pods-Essentials.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentials.release.xcconfig"; path = "Target Support Files/Pods-Essentials/Pods-Essentials.release.xcconfig"; sourceTree = "<group>"; };
 		82A01F782591432600D54953 /* Essentials.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Essentials.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82A01F7B2591432600D54953 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +138,10 @@
 				82A01F9F259145BC00D54953 /* Question.swift */,
 				82A01F97259145BC00D54953 /* RoadMapItem.swift */,
 				82A01F99259145BC00D54953 /* Survey.swift */,
+				393D955D2592730D00B436D7 /* Project.swift */,
+				393D9560259275DE00B436D7 /* Portfolio.swift */,
+				393D95632592764500B436D7 /* Organization.swift */,
+				393D95662592777F00B436D7 /* EmployeeOrganizationPart.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -286,12 +298,16 @@
 				82A01FAB259145BC00D54953 /* Question.swift in Sources */,
 				82A01FA5259145BC00D54953 /* Survey.swift in Sources */,
 				82A01FDB259229D600D54953 /* EmployeeDetailsViewController.swift in Sources */,
+				393D95642592764500B436D7 /* Organization.swift in Sources */,
+				393D9561259275DE00B436D7 /* Portfolio.swift in Sources */,
 				82A01F802591432600D54953 /* EmployeeViewController.swift in Sources */,
 				82A01FA4259145BC00D54953 /* Employee.swift in Sources */,
+				393D955E2592730D00B436D7 /* Project.swift in Sources */,
 				82A01FA1259145BC00D54953 /* EmployeeChangeGroup.swift in Sources */,
 				82A01FA3259145BC00D54953 /* RoadMapItem.swift in Sources */,
 				82A01FCE2591798100D54953 /* EmployeeAPI.swift in Sources */,
 				82A01FA8259145BC00D54953 /* ChangeInitiative.swift in Sources */,
+				393D95672592777F00B436D7 /* EmployeeOrganizationPart.swift in Sources */,
 				82A01FA9259145BC00D54953 /* ChangeType.swift in Sources */,
 				82A01FA7259145BC00D54953 /* ChangeGroup.swift in Sources */,
 				82A01FA6259145BC00D54953 /* ChangeManager.swift in Sources */,
