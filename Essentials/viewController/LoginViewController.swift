@@ -1,24 +1,33 @@
 //
-//  EmployeeAPI.swift
+//  LoginViewController.swift
 //  Essentials
 //
 //  Created by Ziggy Moens on 22/12/2020.
 //
 
-import Foundation
+import UIKit
 import Alamofire
 
-class EmployeeAPI{
+class LoginViewController: UIViewController {
     
-    var employees: [Employee] = [Employee]()
+    var employees: [Employee]?
     
-    let group = DispatchGroup()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        fetchEmployees()
+    }
     
-    func fetchEmployees() -> [Employee]{
+    
+    
+}
+
+
+// MARK: - ALAMOFIRE API
+extension LoginViewController {
+    func fetchEmployees() {
         AF.request("https://essentialsapi-forios.azurewebsites.net/api/Employees/GetAllEmployeesFromOrganization/1").validate().responseDecodable(of: [Employee].self) { (response) in
             guard let employees = response.value else { return }
             self.employees = employees
         }
-        return self.employees
     }
 }
