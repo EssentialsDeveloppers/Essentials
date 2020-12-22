@@ -119,6 +119,61 @@
             </objects>
             <point key="canvasLocation" x="629" y="-648"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="EMY-eI-FMr">
+            <objects>
+                <viewController id="Fl2-qr-xPa" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cGU-Xg-SLR" customClass="ChangeInitiativeViewController">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Tk-lT-gcp">
+                                <rect key="frame" x="0.0" y="192" width="414" height="704"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Les-ao-xpd">
+                                        <rect key="frame" x="0.0" y="10" width="414" height="30"/>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="mXZ-o2-ede"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hnc-bw-h3M" firstAttribute="trailing" secondItem="Les-ao-xpd" secondAttribute="trailing" id="Flf-Uc-vk2"/>
+                                    <constraint firstItem="Les-ao-xpd" firstAttribute="top" secondItem="hnc-bw-h3M" secondAttribute="top" constant="10" id="Xr5-hJ-jFO"/>
+                                    <constraint firstItem="Les-ao-xpd" firstAttribute="leading" secondItem="hnc-bw-h3M" secondAttribute="leading" id="Y38-JN-xI6"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="9dt-uc-CuY"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="hnc-bw-h3M"/>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ChangeInitiatives" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02b-di-MyN">
+                                <rect key="frame" x="0.0" y="92" width="414" height="58"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2Zl-FH-wAz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PyK-vB-EBU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="02b-di-MyN" firstAttribute="leading" secondItem="PyK-vB-EBU" secondAttribute="leading" constant="50" id="JI9-pH-zIv"/>
+                            <constraint firstItem="PyK-vB-EBU" firstAttribute="trailing" secondItem="02b-di-MyN" secondAttribute="trailing" constant="50" id="h5V-Ux-dpK"/>
+                            <constraint firstItem="02b-di-MyN" firstAttribute="top" secondItem="PyK-vB-EBU" secondAttribute="top" constant="100" id="xEZ-YC-uv1"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y9b-Jg-A3p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2002.8985507246377" y="-832.36607142857144"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="gsp-OS-lDd">
             <objects>
@@ -139,6 +194,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
