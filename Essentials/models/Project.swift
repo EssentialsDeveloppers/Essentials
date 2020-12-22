@@ -7,19 +7,10 @@
 
 import Foundation
 
-class Project : Codable {
-    var id: Int
-    var name: String
-//    var changeInitiatives: [ChangeInitiative]
-    
-    init?(id: Int, name: String/*, changeInitiatives: [ChangeInitative]*/) {
-        if id < 0 || name.isEmpty {
-            return nil
-        }
-        self.id = id
-        self.name = name
-//        self.changeInitiatives = changeInitiatives
-    }
+struct Project : Codable {
+    public let id: Int
+    public let name: String
+//    public let changeInitiatives: [ChangeInitiative]        
     
     public enum CodingKeys: String, CodingKey{
         case id = "id"

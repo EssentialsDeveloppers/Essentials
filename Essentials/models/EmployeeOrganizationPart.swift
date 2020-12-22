@@ -7,23 +7,12 @@
 
 import Foundation
 
-class EmployeeOrganizationPart : Codable {
-    var employeeId: Int
-//    var employee: Employee
-    var organizationPartId: Int
-//    var organizationParts: OrganizationPart
-    var type: String
-    
-    init?(employeeId: Int/*, employee: Employee*/, organizationPartId: Int/*, organizationParts: OrganizationPart*/, type: String){
-        if employeeId < 0 || type.isEmpty {
-            return nil
-        }
-        self.employeeId = employeeId
-//        self.employee = employee
-        self.organizationPartId = organizationPartId
-//        self.organizationParts = organizationParts
-        self.type = type
-    }
+struct EmployeeOrganizationPart : Codable {
+    public let employeeId: Int
+//    public let employee: Employee
+    public let organizationPartId: Int
+//    public let organizationParts: OrganizationPart
+    public let type: String        
     
     public enum CodingKeys: String, CodingKey{
         case employeeId = "employeeId"
