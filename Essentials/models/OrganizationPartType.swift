@@ -2,7 +2,7 @@
 //  OrganizationPartType.swift
 //  Essentials
 //
-//  Created by Jonathan on 21/12/2020.
+//  Created by Jonathan Vanden Eynden on 21/12/2020.
 //
 
 import Foundation
