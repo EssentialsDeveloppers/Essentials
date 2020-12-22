@@ -29,7 +29,6 @@
 		82A01FA9259145BC00D54953 /* ChangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A01F9D259145BC00D54953 /* ChangeType.swift */; };
 		82A01FAA259145BC00D54953 /* OrganizationPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A01F9E259145BC00D54953 /* OrganizationPart.swift */; };
 		82A01FAB259145BC00D54953 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A01F9F259145BC00D54953 /* Question.swift */; };
-		82A01FCE2591798100D54953 /* EmployeeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A01FCD2591798100D54953 /* EmployeeAPI.swift */; };
 		82A01FDB259229D600D54953 /* EmployeeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A01FDA259229D600D54953 /* EmployeeDetailsViewController.swift */; };
 		82A01FE225923C5F00D54953 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A01FE125923C5F00D54953 /* LoginViewController.swift */; };
 		82A01FE52592489C00D54953 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A01FE42592489C00D54953 /* HomeViewController.swift */; };
@@ -65,7 +64,6 @@
 		82A01F9D259145BC00D54953 /* ChangeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeType.swift; sourceTree = "<group>"; };
 		82A01F9E259145BC00D54953 /* OrganizationPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationPart.swift; sourceTree = "<group>"; };
 		82A01F9F259145BC00D54953 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
-		82A01FCD2591798100D54953 /* EmployeeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeAPI.swift; sourceTree = "<group>"; };
 		82A01FDA259229D600D54953 /* EmployeeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsViewController.swift; sourceTree = "<group>"; };
 		82A01FE125923C5F00D54953 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		82A01FE42592489C00D54953 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				82A01FD92592299C00D54953 /* viewController */,
-				82A01FAF25914C0A00D54953 /* network */,
 				82A01F932591459900D54953 /* models */,
 				82A01F7B2591432600D54953 /* AppDelegate.swift */,
 				82A01F7D2591432600D54953 /* SceneDelegate.swift */,
@@ -148,22 +145,6 @@
 				393D95662592777F00B436D7 /* EmployeeOrganizationPart.swift */,
 			);
 			path = models;
-			sourceTree = "<group>";
-		};
-		82A01FAF25914C0A00D54953 /* network */ = {
-			isa = PBXGroup;
-			children = (
-				82A01FD02591808900D54953 /* APIcalls */,
-			);
-			path = network;
-			sourceTree = "<group>";
-		};
-		82A01FD02591808900D54953 /* APIcalls */ = {
-			isa = PBXGroup;
-			children = (
-				82A01FCD2591798100D54953 /* EmployeeAPI.swift */,
-			);
-			path = APIcalls;
 			sourceTree = "<group>";
 		};
 		82A01FD92592299C00D54953 /* viewController */ = {
@@ -316,7 +297,6 @@
 				393D955E2592730D00B436D7 /* Project.swift in Sources */,
 				82A01FA1259145BC00D54953 /* EmployeeChangeGroup.swift in Sources */,
 				82A01FA3259145BC00D54953 /* RoadMapItem.swift in Sources */,
-				82A01FCE2591798100D54953 /* EmployeeAPI.swift in Sources */,
 				82A01FA8259145BC00D54953 /* ChangeInitiative.swift in Sources */,
 				BEFE6A7725928C4B0081D4BA /* ChangeInitiativeViewController.swift in Sources */,
 				393D95672592777F00B436D7 /* EmployeeOrganizationPart.swift in Sources */,
