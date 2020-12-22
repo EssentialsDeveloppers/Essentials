@@ -8,14 +8,14 @@
 import Foundation
 
 struct EmployeeChangeGroup: Codable {
-    let employeeId : Int
-    //var employee : Employee
-    var changeGroupId : Int
-    var changeGroup: ChangeGroup
+    public let employeeId : Int
+    public let employee : Employee?
+    public let changeGroupId : Int
+    public let changeGroup: ChangeGroup?
     
     public enum CodingKeys: String, CodingKey {
         case employeeId = "id"
-        //case employee = "employee"
+        case employee = "employee"
         case changeGroupId = "changeGroupId"
         case changeGroup = "changeGroup"
     }

@@ -26,10 +26,10 @@ struct Question: Codable{
 //    }   
         
     public enum CodingKeys: String, CodingKey {
-        case id
-        case possibleAnswers
-        case questionString
-        case type
-        case questionRegistered
+        case id = "id"
+        case possibleAnswers = "possibleAnswers"
+        case questionString = "questionString"
+        case type = "type"
+        case questionRegistered = "questionRegistered"
     }
 }

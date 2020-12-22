@@ -9,7 +9,7 @@ import Foundation
 
 struct Portfolio : Codable {
     public let id: Int
-    public let projects: [Project]        
+    public let projects: [Project]
     
     public enum CodingKeys: String, CodingKey{
         case id = "id"

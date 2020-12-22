@@ -16,7 +16,7 @@ struct ChangeInitiative : Codable {
     public let endDate: String
     public let changeType: ChangeType?
     public let changeGroup: [ChangeGroup]?
-    public let changeSponsor: Employee
+    public let changeSponsor: Employee?
     public let roadMaps: [RoadMapItem]
     public let progress: Int
     

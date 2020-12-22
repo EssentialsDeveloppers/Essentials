@@ -15,7 +15,7 @@ struct Project : Codable {
     public enum CodingKeys: String, CodingKey{
         case id = "id"
         case name = "name"
-        case changeInitatives = "changeInitatives"
+        case changeInitiatives = "changeInitiatives"
     }
     
 }

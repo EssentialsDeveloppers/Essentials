@@ -26,10 +26,10 @@ struct Survey: Codable{
 //    }
     
     public enum CodingKeys: String, CodingKey {
-        case id
-        case questions
-        case feedback
-        case roadMapItemId
-        case roadMapItem
+        case id = "id"
+        case questions = "questions"
+        case feedback = "feedback"
+        case roadMapItemId = "roadMapItemId"
+        case roadMapItem = "roadMapItem"
     }
 }

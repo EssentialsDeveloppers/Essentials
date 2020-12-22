@@ -13,7 +13,7 @@ struct ChangeManager : Codable{
    public let firstName: String
    public let lastName: String
    public let email: String
-   public let createdChangeInitiatives: [ChangeInitiative]
+   public let createdChangeInitiatives: [ChangeInitiative]?
     
     public enum CodingKeys: String, CodingKey{
         case id = "id"

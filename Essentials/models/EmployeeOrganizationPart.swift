@@ -12,7 +12,7 @@ struct EmployeeOrganizationPart : Codable {
     public let employee: Employee
     public let organizationPartId: Int
     public let organizationParts: OrganizationPart
-    public let type: String        
+    public let type: String
     
     public enum CodingKeys: String, CodingKey{
         case employeeId = "employeeId"
