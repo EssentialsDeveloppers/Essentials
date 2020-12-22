@@ -8,7 +8,7 @@
 import Foundation
 
 class Assessment: Codable{
-    var id: Int;
+    let id: Int;
     var questions: [Question];
     var feedback: Question;
     var roadMapItemId: Int;

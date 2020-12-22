@@ -8,7 +8,7 @@
 import Foundation
 
 class Survey: Codable{
-    var id: Int
+    let id: Int
     var questions: [Question]
     var feedback: Question
     var roadMapItemId: Int
@@ -18,18 +18,18 @@ class Survey: Codable{
         if id < 0 || roadMapItemId < 0 || roadMapItem == nil {
             return nil
         }
-            self.id = id
-            self.questions = questions
-            self.feedback = feedback
-            self.roadMapItemId = roadMapItemId
-            self.roadMapItem = roadMapItem
-        }
-        
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case questions
-            case feedback
-            case roadMapItemId
-            case roadMapItem
-        }
+        self.id = id
+        self.questions = questions
+        self.feedback = feedback
+        self.roadMapItemId = roadMapItemId
+        self.roadMapItem = roadMapItem
+    }
+    
+    public enum CodingKeys: String, CodingKey {
+        case id
+        case questions
+        case feedback
+        case roadMapItemId
+        case roadMapItem
+    }
 }

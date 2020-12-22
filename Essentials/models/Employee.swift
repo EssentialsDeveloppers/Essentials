@@ -7,23 +7,16 @@
 
 import Foundation
 
-class Employee {
+struct Employee: Decodable {
+    public let id: Int
+    public let firstName: String
+    public let lastName: String
+    public let email: String
     
-    var id: Int
-    var firstName: String
-    var lastName: String
-    var email: String
-    //var employeeChangeGroup: [EmployeeChangeGroup]
-    
-    init?(id: Int, firstName: String, lastName: String, email: String/*, employeeChangeGroup: [EmployeeChangeGroup]*/) {
-        if id < 0 || firstName.isEmpty || lastName.isEmpty || email.isEmpty {
-            return nil
-        }
-        self.id = id
-        self.firstName = firstName
-        self.lastName = lastName
-        self.email = email
-        //self.employeeChangeGroup = employeeChangeGroup ?? [EmployeeChangeGroup]()
+    public enum CodingKeys: String, CodingKey{
+        case id = "id"
+        case firstName = "firstName"
+        case lastName = "lastName"
+        case email = "email"
     }
-    
 }

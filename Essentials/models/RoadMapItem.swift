@@ -8,7 +8,7 @@
 import Foundation
 
 class RoadMapItem: Codable {
-    var id: Int
+    let id: Int
     var title: String
     var assessment: Assessment?
     var done: Bool

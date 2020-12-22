@@ -7,9 +7,9 @@
 
 import Foundation
 
-class ChangeInitiative {
+struct ChangeInitiative {
     
-    var id: Int
+    let id: Int
     var title: String
     var description: String
     var startDate: String

@@ -7,9 +7,9 @@
 
 import Foundation
 
-class ChangeManager {
+struct ChangeManager {
     
-    var id: Int
+    let id: Int
     var firstName: String
     var lastName: String
     var email: String

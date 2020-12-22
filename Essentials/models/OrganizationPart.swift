@@ -7,8 +7,8 @@
 
 import Foundation
 
-class OrganizationPart {
-    var id : String
+struct OrganizationPart {
+    let id : String
     var name : String
     // var employeeOrganizationParts : EmployeeOrganizationParts
     var type : String

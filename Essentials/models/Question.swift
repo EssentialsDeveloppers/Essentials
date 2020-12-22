@@ -8,7 +8,7 @@
 import Foundation
 
 class Question: Codable{
-    var id: Int
+    let id: Int
     var possibleAnswers: [String: Int]
     var questionString: String
     var type: String

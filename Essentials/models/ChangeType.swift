@@ -7,8 +7,8 @@
 
 import Foundation
 
-class ChangeType {
-    var id: Int
+struct ChangeType {
+    let id: Int
     
     init?(id: Int) {
         if id < 0 {

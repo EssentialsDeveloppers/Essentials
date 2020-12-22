@@ -7,8 +7,8 @@
 
 import Foundation
 
-class ChangeGroup {
-    var id : Int
+struct ChangeGroup {
+    let id : Int
     var name : String
     var employeeChangeGroups : [EmployeeChangeGroup]
     
