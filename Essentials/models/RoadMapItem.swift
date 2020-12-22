@@ -7,25 +7,25 @@
 
 import Foundation
 
-class RoadMapItem: Codable {
-    let id: Int
-    var title: String
-    var assessment: Assessment?
-    var done: Bool
-    var startDate: String
-    var endDate: String
+struct RoadMapItem: Codable {
+    public let id: Int
+    public let title: String
+    public let assessment: Assessment?
+    public let done: Bool
+    public let startDate: String
+    public let endDate: String
     
-    public init?(id: Int, title: String, assessment: Assessment?, done: Bool, startDate: String, endDate: String) {
-        if id < 0 || title.isEmpty || assessment == nil || startDate.isEmpty || endDate.isEmpty {
-            return nil
-        }
-            self.id = id
-            self.title = title
-            self.assessment = assessment
-            self.done = done
-            self.startDate = startDate
-            self.endDate = endDate
-        }
+//    public init?(id: Int, title: String, assessment: Assessment?, done: Bool, startDate: String, endDate: String) {
+//        if id < 0 || title.isEmpty || assessment == nil || startDate.isEmpty || endDate.isEmpty {
+//            return nil
+//        }
+//            self.id = id
+//            self.title = title
+//            self.assessment = assessment
+//            self.done = done
+//            self.startDate = startDate
+//            self.endDate = endDate
+//        }
         
         public enum CodingKeys: String, CodingKey {
             case id

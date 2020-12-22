@@ -34,6 +34,7 @@
 		82A01FE225923C5F00D54953 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A01FE125923C5F00D54953 /* LoginViewController.swift */; };
 		82A01FE52592489C00D54953 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A01FE42592489C00D54953 /* HomeViewController.swift */; };
 		9008166023395A299D4C91D8 /* Pods_Essentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DE121FFFBC9F6E6CAF612E4 /* Pods_Essentials.framework */; };
+		BEFE6A7725928C4B0081D4BA /* ChangeInitiativeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFE6A7625928C4B0081D4BA /* ChangeInitiativeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		82A01FDA259229D600D54953 /* EmployeeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsViewController.swift; sourceTree = "<group>"; };
 		82A01FE125923C5F00D54953 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		82A01FE42592489C00D54953 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BEFE6A7625928C4B0081D4BA /* ChangeInitiativeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeInitiativeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				82A01FDA259229D600D54953 /* EmployeeDetailsViewController.swift */,
 				82A01FE125923C5F00D54953 /* LoginViewController.swift */,
 				82A01FE42592489C00D54953 /* HomeViewController.swift */,
+				BEFE6A7625928C4B0081D4BA /* ChangeInitiativeViewController.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				82A01FA3259145BC00D54953 /* RoadMapItem.swift in Sources */,
 				82A01FCE2591798100D54953 /* EmployeeAPI.swift in Sources */,
 				82A01FA8259145BC00D54953 /* ChangeInitiative.swift in Sources */,
+				BEFE6A7725928C4B0081D4BA /* ChangeInitiativeViewController.swift in Sources */,
 				393D95672592777F00B436D7 /* EmployeeOrganizationPart.swift in Sources */,
 				82A01FA9259145BC00D54953 /* ChangeType.swift in Sources */,
 				82A01FA7259145BC00D54953 /* ChangeGroup.swift in Sources */,
