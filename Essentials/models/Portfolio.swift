@@ -7,17 +7,9 @@
 
 import Foundation
 
-class Portfolio : Codable {
-    var id: Int
-    var projects: [Project]
-    
-    init?(id: Int, projects: [Project]){
-        if id < 0 {
-            return nil
-        }
-        self.id = id
-        self.projects = projects
-    }
+struct Portfolio : Codable {
+    public let id: Int
+    public let projects: [Project]
     
     public enum CodingKeys: String, CodingKey{
         case id = "id"

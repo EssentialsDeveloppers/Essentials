@@ -7,26 +7,26 @@
 
 import Foundation
 
-class Assessment: Codable{
-    let id: Int;
-    var questions: [Question];
-    var feedback: Question;
-    var roadMapItemId: Int;
+struct Assessment: Codable{
+    public let id: Int
+    public let questions: [Question]
+    public let feedback: Question
+    public let roadMapItemId: Int
+
+    //    public init?(id: Int, questions: [Question], feedback: Question, roadMapItemId: Int) {
+    //        if id < 0 || roadMapItemId < 0 {
+    //            return nil
+    //        }
+    //        self.id = id
+    //        self.questions = questions
+    //        self.feedback = feedback
+    //        self.roadMapItemId = roadMapItemId
+    //    }
     
-    public init?(id: Int, questions: [Question], feedback: Question, roadMapItemId: Int) {
-        if id < 0 || roadMapItemId < 0 {
-            return nil
-        }
-        self.id = id
-        self.questions = questions
-        self.feedback = feedback
-        self.roadMapItemId = roadMapItemId
-    }
-        
     public enum CodingKeys: String, CodingKey {
-        case id
-        case questions
-        case feedback
-        case roadMapItemId
+        case id = "id"
+        case questions = "questions"
+        case feedback = "feedback"
+        case roadMapItemId = "roadMapItemId"
     }
 }

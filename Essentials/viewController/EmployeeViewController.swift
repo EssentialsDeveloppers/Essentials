@@ -29,12 +29,6 @@ class EmployeeViewController: UITableViewController {
         return cell
     }
     
-    
-    
-    /*@IBAction func toDetailsEmployee(cell: UITableViewCell){
-     performSegue(withIdentifier: "toDetails", sender: cell)
-     }*/
-    
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         selectedItem = employees[indexPath.row]
         return indexPath
