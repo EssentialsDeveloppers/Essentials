@@ -8,15 +8,15 @@
 import Foundation
 
 struct OrganizationPart : Codable{
-    public let id : Int
+    public let id : String
     public let name : String
     public let employeeOrganizationPart : [EmployeeOrganizationPart]
-    public let type : Int
+    public let type : String
     
     public enum CodingKeys: String, CodingKey {
         case id = "id"
         case name = "name"
-        case employeeOrganizationPart = "employeeOrganizationParts"
+        case employeeOrganizationPart = "employeeOrganizationPart"
         case type = "type"
     }
     

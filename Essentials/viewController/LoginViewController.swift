@@ -12,16 +12,6 @@ import Alamofire
  - Author: Ziggy Moens
  */
 class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    //MARK: - View
-    /// Outlet to Picker View with name "Employee Picker" on the StoryBoard
-    @IBOutlet weak var employeePicker: UIPickerView!
-    /// Outlet to Picker View with name "ChangeManager Picker" on the StoryBoar
-    @IBOutlet weak var changeManagerPicker: UIPickerView!
-    /// Outlet to Switch with name "Change Manager Switch" on the StoryBoar
-    @IBOutlet weak var changeManagerSwitch: UISwitch!
-    
-    //MARK: - Controller
-    
     /// Local list of employees
     var employees: [Employee] = []
     /// Local list of change managers
@@ -31,6 +21,17 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     /// Local selected change manager
     var selectedChangeManager: ChangeManager?
     
+    //MARK: - View
+    /// Outlet to Picker View with name "Employee Picker" on the StoryBoard
+    @IBOutlet weak var employeePicker: UIPickerView!
+    /// Outlet to Picker View with name "ChangeManager Picker" on the StoryBoar
+    @IBOutlet weak var changeManagerPicker: UIPickerView!
+    /// Outlet to Switch with name "Change Manager Switch" on the StoryBoar
+    @IBOutlet weak var changeManagerSwitch: UISwitch!
+    /// Outlet to Activity Indicator View with name spinner on the StoryBoar
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
+    //MARK: - Controller
     /**
      Overrides the function viewDidLoad, this one starts after the view has been loaded, here we will trigger the api calls and set the pickerViews & switch
      
@@ -47,7 +48,6 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         employeePicker.isHidden = true
         changeManagerPicker.isHidden = true
         
-        Loading.startLoading(view: self)
         fetchChangeManagers()
         fetchEmployees()
     }
@@ -147,12 +147,8 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
 }
 
+
 // MARK: - ALAMOFIRE API
-/**
- extension to LoginViewController containing the api calls
- 
- - Author: Ziggy Moens
- */
 extension LoginViewController {
     
     /**
@@ -170,13 +166,15 @@ extension LoginViewController {
      - Author: Ziggy Moens
      */
     func fetchEmployees() {
-        //Loading.startLoading(view: self)
+        spinner.isHidden = false
+        spinner.startAnimating()
         AF.request("https://essentialsapi-forios.azurewebsites.net/api/Employees/GetAllEmployeesFromOrganization/1").validate().responseDecodable(of: [Employee].self) { (response) in
             guard let employees = response.value else { return }
             self.employees = employees
             self.employeePicker.reloadAllComponents()
             self.employeePicker.isHidden = false
-            Loading.stopLoading(view: self)
+            self.spinner.isHidden = true
+            self.spinner.stopAnimating()
             self.employeePicker.selectRow(0, inComponent: 0, animated: true)
             self.pickerView(self.employeePicker, didSelectRow: 0, inComponent: 0)
         }
@@ -197,12 +195,14 @@ extension LoginViewController {
      - Author: Ziggy Moens
      */
     func fetchChangeManagers(){
-        //Loading.startLoading(view: self)
+        spinner.isHidden = false
+        spinner.startAnimating()
         AF.request("https://essentialsapi-forios.azurewebsites.net/api/ChangeManagers/GetChangeManagersFromOrganization/1").validate().responseDecodable(of: [ChangeManager].self) { (response) in
             guard let changeManagers = response.value else { return }
             self.changeManagers = changeManagers
             self.changeManagerPicker.reloadAllComponents()
-            Loading.stopLoading(view: self)
+            self.spinner.isHidden = true
+            self.spinner.stopAnimating()
         }
     }
 }
