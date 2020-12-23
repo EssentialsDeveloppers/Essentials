@@ -46,8 +46,6 @@ class RoadMapItemViewController: UITableViewController {
 extension RoadMapItemViewController {
     func fetchEmployees() {
         AF.request("https://essentialsapi-forios.azurewebsites.net/api/ChangeInitiatives/GetChangeInitiativesForEmployee/\(Globals.isChangeManager ? Globals.changeManager!.id : Globals.employee!.id)").validate().responseDecodable(of: [ChangeInitiative].self) { (response) in
-            print(response)
-            print(response.debugDescription)
             guard let changeInitiatives = response.value else { return }
             var rmis = [RoadMapItem]()
             for changeInitiative in changeInitiatives{
