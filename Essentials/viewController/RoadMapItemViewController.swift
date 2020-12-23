@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-class EmployeeViewController: UITableViewController {
+class RoadMapItemViewController: UITableViewController {
     var employees: [Employee] = [Employee]()
     var selectedItem: Employee?
     
@@ -34,7 +34,7 @@ class EmployeeViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destinationVC = segue.destination as? EmployeeDetailsViewController else {
+        guard let destinationVC = segue.destination as? RoadMapItemDetailsViewController else {
             return
         }
         destinationVC.data = selectedItem
@@ -43,7 +43,7 @@ class EmployeeViewController: UITableViewController {
 
 
 // MARK: - ALAMOFIRE API
-extension EmployeeViewController {
+extension RoadMapItemViewController {
     func fetchEmployees() {
         AF.request("https://essentialsapi-forios.azurewebsites.net/api/Employees/GetAllEmployeesFromOrganization/1").validate().responseDecodable(of: [Employee].self) { (response) in
             guard let employees = response.value else { return }

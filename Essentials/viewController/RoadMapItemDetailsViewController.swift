@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EmployeeDetailsViewController: UIViewController {
+class RoadMapItemDetailsViewController: UIViewController {
     
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!

@@ -24,11 +24,22 @@ class HomeViewController: UIViewController {
         if(isChangeManager){
             guard let data = changeManager else { return }
             labelName.text = data.firstName
+            Globals.changeManager = data
+            Globals.isChangeManager = self.isChangeManager
         }else{
             guard let data = employee else { return }
             labelName.text = data.firstName
+            Globals.employee = data
         }
         labelType.text = isChangeManager ? "Change Manager": "Employee"
     }
     
+}
+
+class Globals {
+     static var isChangeManager: Bool = false
+
+     static var employee: Employee?
+    
+     static var changeManager: ChangeManager?
 }
