@@ -11,7 +11,6 @@ import Alamofire
 class EmployeeViewController: UITableViewController {
     var employees: [Employee] = [Employee]()
     var selectedItem: Employee?
-    let employeeApi = EmployeeAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
