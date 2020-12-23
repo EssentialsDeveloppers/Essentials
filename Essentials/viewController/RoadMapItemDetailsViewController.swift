@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import EventKit
 
 class RoadMapItemDetailsViewController: UIViewController {
     
@@ -18,6 +19,14 @@ class RoadMapItemDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         commonInit()
+        
+        let eventStore = EKEventStore()
+        
+        eventStore.requestAccess(to: .event){ granted, error in
+            if (error != nil){
+                print(error)
+            }
+        }
     }
     
     private func commonInit(){
