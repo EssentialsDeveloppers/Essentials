@@ -13,6 +13,7 @@ struct Employee: Codable {
     public let lastName: String
     public let email: String
     public let employeeChangeGroup: [EmployeeChangeGroup]?
+    public let employeeOrganizationPart: [EmployeeOrganizationPart]?
     
     public enum CodingKeys: String, CodingKey{
         case id = "id"
@@ -20,5 +21,6 @@ struct Employee: Codable {
         case lastName = "lastName"
         case email = "email"
         case employeeChangeGroup = "employeeChangeGroups"
+        case employeeOrganizationPart = "employeeOrganizationParts"
     }
 }

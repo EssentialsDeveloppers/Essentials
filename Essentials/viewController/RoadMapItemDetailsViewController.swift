@@ -13,7 +13,7 @@ class RoadMapItemDetailsViewController: UIViewController {
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
-    var data: Employee?
+    var roadMapItem: RoadMapItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +21,10 @@ class RoadMapItemDetailsViewController: UIViewController {
     }
     
     private func commonInit(){
-        guard let data = data else { return }
+        guard let data = roadMapItem else { return }
         
-        firstNameLabel.text = data.firstName
-        lastNameLabel.text = data.lastName
-        emailLabel.text = data.email
+        firstNameLabel.text = data.title
+        lastNameLabel.text = data.startDate
+        emailLabel.text = data.endDate
     }
 }

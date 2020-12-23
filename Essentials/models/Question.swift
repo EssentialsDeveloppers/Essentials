@@ -11,7 +11,7 @@ struct Question: Codable{
     public let id: Int
     public let possibleAnswers: [String: Int]
     public let questionString: String
-    public let type: String
+    public let type: Int
     public let questionRegistered: [String: String]?
     
 //    public init?(id: Int, possibleAnswers: [String: Int], questionString: String, type: String, questionRegistered: [String: String]?) {
