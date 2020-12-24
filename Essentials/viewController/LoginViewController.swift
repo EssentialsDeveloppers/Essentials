@@ -38,6 +38,9 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
      */
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        
         employeePicker.delegate = self
         employeePicker.dataSource = self
         changeManagerPicker.delegate = self
