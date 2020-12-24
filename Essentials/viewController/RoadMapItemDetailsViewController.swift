@@ -18,6 +18,8 @@ class RoadMapItemDetailsViewController: UIViewController {
     @IBOutlet weak var startDateRoadMap: UILabel!
     ///
     @IBOutlet weak var endDateRoadMap: UILabel!
+    ///
+    @IBOutlet weak var AmountOfQuestionsRoadMap: UILabel!
     
     //MARK: - Controller
     ///
@@ -30,6 +32,7 @@ class RoadMapItemDetailsViewController: UIViewController {
         super.viewDidLoad()
         initView()
     }
+    
     /**
      - Author: Ziggy Moens
      */
@@ -38,7 +41,9 @@ class RoadMapItemDetailsViewController: UIViewController {
         titleRoadMap.text = data.title
         startDateRoadMap.text = getDateString(date: data.startDate)
         endDateRoadMap.text = getDateString(date: data.endDate)
+        AmountOfQuestionsRoadMap.text = String(data.assessment!.questions.count)
     }
+    
     /**
      - Author: Ziggy Moens
      */
@@ -57,18 +62,16 @@ class RoadMapItemDetailsViewController: UIViewController {
             eventStore.requestAccess(to: .event, completion:
                                         {[weak self] (granted: Bool, error: Error?) -> Void in
                                             if granted {
-                                                self!.insertEvent(store: eventStore)
+                                                DispatchQueue.main.async {
+                                                    self!.insertEvent(store: eventStore)
+                                                }
                                             } else {
-                                                let ac = UIAlertController.init(title: "Essentials",
-                                                                                message: "We don't have permission to your calendar", preferredStyle: .alert)
-                                                ac.addAction(UIAlertAction.init(title: "Close",
-                                                                                style: .default, handler: nil))
-                                                self!.present(ac, animated: true, completion: nil)
+                                                print("No access")
                                             }
                                         })
         default:
             let ac = UIAlertController.init(title: "Essentials",
-                                            message: "Something went wrong while saving to calender", preferredStyle: .alert)
+                                            message: "Something went wrong while saving to calender.", preferredStyle: .alert)
             ac.addAction(UIAlertAction.init(title: "Close",
                                             style: .default, handler: nil))
             self.present(ac, animated: true, completion: nil)
@@ -88,8 +91,12 @@ class RoadMapItemDetailsViewController: UIViewController {
         event.calendar = store.defaultCalendarForNewEvents
         do {
             try store.save(event, span: .thisEvent)
-        } catch let error as NSError {
-            print("failed to save event with error : \(error)")
+        } catch _ as NSError {
+            let ac = UIAlertController.init(title: "Essentials",
+                                            message: "Something went wrong while saving the event, please try again later.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction.init(title: "Close",
+                                            style: .default, handler: nil))
+            self.present(ac, animated: true, completion: nil)
         }
         print("Saved Event")
         Loading.stopLoading(view: self)
