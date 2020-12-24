@@ -22,7 +22,7 @@ class TeamDetailsViewController : UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TeamDetailsCell", for: indexPath)
         let employee = employees[indexPath.row]
-        cell.textLabel?.text = employee.firstName + " " + employee.lastName
+        cell.textLabel?.text = "\(employee.firstName) \(employee.lastName)"
         return cell
     }
     
