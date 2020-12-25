@@ -9,8 +9,12 @@ import UIKit
 import Alamofire
 import Contacts
 
+/**
+ - Author: Jonathan Vanden Eynden Van Lysebeth
+ 
+ */
 class EmployeeInfoViewController: UIViewController {
-    
+    // MARK: - View
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
@@ -20,6 +24,10 @@ class EmployeeInfoViewController: UIViewController {
     var employee: Employee?
     var changeGroups: [ChangeGroup] = []
     
+    /**
+     Initialize view, set the listTableView dataSource to self and get all the Teams of the  user
+     - Author: Jonathan Vanden Eynden Van Lysebeth
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
@@ -27,6 +35,10 @@ class EmployeeInfoViewController: UIViewController {
         fetchTeamsUser()
     }
     
+    /**
+     Set all view objects (outlets) to their correct data
+     - Author: Jonathan Vanden Eynden Van Lysebeth
+     */
     private func initView(){
         guard let data = employee else { return }
         firstNameLabel.text = data.firstName
@@ -35,6 +47,13 @@ class EmployeeInfoViewController: UIViewController {
         fullNameLabel.text = "\(data.firstName) \(data.lastName)"
     }
     
+    /**
+     Button to add contact to the device's Contacts
+     ### Functionalities
+     - Makes a new contact if the device has access to the contacts
+     - Displays an alert if the device does not have access to the contacts
+     - Author: Jonathan Vanden Eynden Van Lysebeth
+     */
     @IBAction func addContacts(_ sender: Any) {
         let contactStore = CNContactStore()
         
@@ -62,6 +81,10 @@ class EmployeeInfoViewController: UIViewController {
         }
     }
     
+    /**
+     Make contact object and set Labels of View to contact attributes
+     - Author: Jonathan Vanden Eynden Van Lysebeth
+     */
     func insertContact(store: CNContactStore) {
         let contact = CNMutableContact()
         contact.givenName = firstNameLabel.text!
