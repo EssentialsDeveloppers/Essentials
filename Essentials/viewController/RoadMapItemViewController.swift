@@ -22,7 +22,7 @@ class RoadMapItemViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "roadMapItemCell", for: indexPath)
         let item = roadMapItems[indexPath.row]
         cell.textLabel?.text = item.title
         return cell
