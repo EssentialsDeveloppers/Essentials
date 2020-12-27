@@ -9,8 +9,8 @@ import UIKit
 import Alamofire
 
 class RoadMapItemViewController: UITableViewController {
-    var employees: [Employee] = [Employee]()
-    var selectedItem: Employee?
+    var roadMapItems: [RoadMapItem] = [RoadMapItem]()
+    var selectedRoadMapItem: RoadMapItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,26 +18,26 @@ class RoadMapItemViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return employees.count
+        return roadMapItems.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath)
-        let item = employees[indexPath.row]
-        cell.textLabel?.text = item.firstName + " " + item.lastName
+        let item = roadMapItems[indexPath.row]
+        cell.textLabel?.text = item.title
         return cell
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        selectedItem = employees[indexPath.row]
+        selectedRoadMapItem = roadMapItems[indexPath.row]
         return indexPath
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destinationVC = segue.destination as? RoadMapItemDetailsViewController else {
+        guard let detailsRoadMapItem = segue.destination as? RoadMapItemDetailsViewController else {
             return
         }
-        destinationVC.data = selectedItem
+        detailsRoadMapItem.roadMapItem = selectedRoadMapItem
     }
 }
 
@@ -45,9 +45,13 @@ class RoadMapItemViewController: UITableViewController {
 // MARK: - ALAMOFIRE API
 extension RoadMapItemViewController {
     func fetchEmployees() {
-        AF.request("https://essentialsapi-forios.azurewebsites.net/api/Employees/GetAllEmployeesFromOrganization/1").validate().responseDecodable(of: [Employee].self) { (response) in
-            guard let employees = response.value else { return }
-            self.employees = employees
+        AF.request("https://essentialsapi-forios.azurewebsites.net/api/ChangeInitiatives/GetChangeInitiativesForEmployee/\(Globals.isChangeManager ? Globals.changeManager!.id : Globals.employee!.id)").validate().responseDecodable(of: [ChangeInitiative].self) { (response) in
+            guard let changeInitiatives = response.value else { return }
+            var rmis = [RoadMapItem]()
+            for changeInitiative in changeInitiatives{
+                rmis += changeInitiative.roadMaps
+            }
+            self.roadMapItems = rmis
             self.tableView.reloadData()
         }
     }

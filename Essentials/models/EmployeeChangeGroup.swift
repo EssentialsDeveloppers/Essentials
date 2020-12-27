@@ -14,7 +14,7 @@ struct EmployeeChangeGroup: Codable {
     public let changeGroup: ChangeGroup?
     
     public enum CodingKeys: String, CodingKey {
-        case employeeId = "id"
+        case employeeId = "employeeId"
         case employee = "employee"
         case changeGroupId = "changeGroupId"
         case changeGroup = "changeGroup"

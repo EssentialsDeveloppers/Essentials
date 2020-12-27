@@ -7,19 +7,41 @@
 
 import UIKit
 
+/**
+ - Author: Ziggy Moens
+ */
 class HomeViewController: UIViewController {
     
+    // MARK: - View
+    /// Outlet to Label with name "Label Name" on the StoryBoard
     @IBOutlet weak var labelName: UILabel!
+    /// Outlet to Label View with name "Label Type" on the StoryBoard
     @IBOutlet weak var labelType: UILabel!
+    
+    
+    // MARK: - Controller
+    /// local employee object, if isChangeManager is true, this object will be nil
     var employee: Employee?
+    /// local change manager object, if isChangeManager is false, this object will be nil
     var changeManager: ChangeManager?
+    /// local boolean to check if logged in user is a change manager
     var isChangeManager: Bool = false
     
+    /**
+     Overrides the function viewDidLoad, this one starts after the view has been loaded, here we will trigger the **initView()**
+     
+     - Author: Ziggy Moens
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
     }
     
+    /**
+     this function wil initialize the text from the labels on the StoryBoard, also setting the Globals in the project
+     
+     - Author: Ziggy Moens
+     */
     func initView(){
         if(isChangeManager){
             guard let data = changeManager else { return }
@@ -36,10 +58,17 @@ class HomeViewController: UIViewController {
     
 }
 
+//MARK: - Global Variables
+/**
+ Class containing the global variables for this project
+ 
+ - Author: Ziggy Moens
+ */
 class Globals {
-     static var isChangeManager: Bool = false
-
-     static var employee: Employee?
-    
-     static var changeManager: ChangeManager?
+    /// Global boolean to check is user is a change manager
+    static var isChangeManager: Bool = false
+    /// Global Employee Object,  if isChangeManager is true, this object will be nil
+    static var employee: Employee?
+    /// Global Employee Object,  if isChangeManager is false, this object will be nil
+    static var changeManager: ChangeManager?
 }

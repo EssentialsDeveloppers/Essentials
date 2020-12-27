@@ -8,6 +8,9 @@
 import UIKit
 import Alamofire
 
+/**
+ - Author: Ziggy Moens
+ */
 class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     /// Local list of employees
     var employees: [Employee] = []
