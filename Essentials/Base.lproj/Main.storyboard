@@ -125,9 +125,6 @@
                                 <state key="normal" title="Go to Survey">
                                     <color key="titleColor" systemColor="systemOrangeColor"/>
                                 </state>
-                                <connections>
-                                    <action selector="addToCalender:" destination="Fim-AT-sja" eventType="touchUpInside" id="rog-gg-XWc"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3pE-B9-AIE"/>
