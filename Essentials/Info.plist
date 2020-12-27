@@ -4,6 +4,8 @@
 <dict>
 	<key>NSCalendarsUsageDescription</key>
 	<string>This application need to access your calender to add events</string>
+	<key>NSContactsUsageDescription</key>
+	<string>This application needs access to your contacts</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

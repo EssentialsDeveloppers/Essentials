@@ -6,10 +6,7 @@
 //
 
 import UIKit
-import EventKit
-/**
- - Author: Ziggy Moens
- */
+
 class RoadMapItemDetailsViewController: UIViewController {
     //MARK: - View
     ///
@@ -21,13 +18,12 @@ class RoadMapItemDetailsViewController: UIViewController {
     ///
     @IBOutlet weak var AmountOfQuestionsRoadMap: UILabel!
     
-    //MARK: - Controller
-    ///
+    @IBOutlet weak var firstNameLabel: UILabel!
+    @IBOutlet weak var lastNameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    
     var roadMapItem: RoadMapItem?
     
-    /**
-     - Author: Ziggy Moens
-     */
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()

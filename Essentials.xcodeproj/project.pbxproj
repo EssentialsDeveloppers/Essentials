@@ -11,6 +11,9 @@
 		393D9561259275DE00B436D7 /* Portfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D9560259275DE00B436D7 /* Portfolio.swift */; };
 		393D95642592764500B436D7 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D95632592764500B436D7 /* Organization.swift */; };
 		393D95672592777F00B436D7 /* EmployeeOrganizationPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D95662592777F00B436D7 /* EmployeeOrganizationPart.swift */; };
+		50B577342593613800CF9988 /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B577332593613800CF9988 /* TeamViewController.swift */; };
+		50B5773725936FBC00CF9988 /* TeamDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B5773625936FBC00CF9988 /* TeamDetailsViewController.swift */; };
+		50B5773C259385B200CF9988 /* EmployeeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B5773B259385B200CF9988 /* EmployeeInfoViewController.swift */; };
 		82A01F7C2591432600D54953 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A01F7B2591432600D54953 /* AppDelegate.swift */; };
 		82A01F7E2591432600D54953 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A01F7D2591432600D54953 /* SceneDelegate.swift */; };
 		82A01F802591432600D54953 /* RoadMapItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A01F7F2591432600D54953 /* RoadMapItemViewController.swift */; };
@@ -46,6 +49,9 @@
 		393D95632592764500B436D7 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		393D95662592777F00B436D7 /* EmployeeOrganizationPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeOrganizationPart.swift; sourceTree = "<group>"; };
 		44D57B21EAC920253B3EAAA5 /* Pods-Essentials.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentials.release.xcconfig"; path = "Target Support Files/Pods-Essentials/Pods-Essentials.release.xcconfig"; sourceTree = "<group>"; };
+		50B577332593613800CF9988 /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
+		50B5773625936FBC00CF9988 /* TeamDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsViewController.swift; sourceTree = "<group>"; };
+		50B5773B259385B200CF9988 /* EmployeeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeInfoViewController.swift; sourceTree = "<group>"; };
 		82A01F782591432600D54953 /* Essentials.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Essentials.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82A01F7B2591432600D54953 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82A01F7D2591432600D54953 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +166,9 @@
 				82A01FE125923C5F00D54953 /* LoginViewController.swift */,
 				82A01FE42592489C00D54953 /* HomeViewController.swift */,
 				BEFE6A7625928C4B0081D4BA /* ChangeInitiativeViewController.swift */,
+				50B577332593613800CF9988 /* TeamViewController.swift */,
+				50B5773625936FBC00CF9988 /* TeamDetailsViewController.swift */,
+				50B5773B259385B200CF9988 /* EmployeeInfoViewController.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -303,6 +312,7 @@
 				82A01FAB259145BC00D54953 /* Question.swift in Sources */,
 				82A01FE52592489C00D54953 /* HomeViewController.swift in Sources */,
 				82A01FA5259145BC00D54953 /* Survey.swift in Sources */,
+				50B5773C259385B200CF9988 /* EmployeeInfoViewController.swift in Sources */,
 				82A01FDB259229D600D54953 /* RoadMapItemDetailsViewController.swift in Sources */,
 				393D95642592764500B436D7 /* Organization.swift in Sources */,
 				393D9561259275DE00B436D7 /* Portfolio.swift in Sources */,
@@ -312,6 +322,7 @@
 				82A01FA1259145BC00D54953 /* EmployeeChangeGroup.swift in Sources */,
 				82A01FA3259145BC00D54953 /* RoadMapItem.swift in Sources */,
 				82A01FA8259145BC00D54953 /* ChangeInitiative.swift in Sources */,
+				50B577342593613800CF9988 /* TeamViewController.swift in Sources */,
 				BEFE6A7725928C4B0081D4BA /* ChangeInitiativeViewController.swift in Sources */,
 				393D95672592777F00B436D7 /* EmployeeOrganizationPart.swift in Sources */,
 				82A01FA9259145BC00D54953 /* ChangeType.swift in Sources */,
@@ -321,8 +332,8 @@
 				82A020062594B30900D54953 /* NoAnimationSegue.swift in Sources */,
 				82A01F7C2591432600D54953 /* AppDelegate.swift in Sources */,
 				82A01FAA259145BC00D54953 /* OrganizationPart.swift in Sources */,
+				50B5773725936FBC00CF9988 /* TeamDetailsViewController.swift in Sources */,
 				82A01F7E2591432600D54953 /* SceneDelegate.swift in Sources */,
-				82A0200325937EE300D54953 /* Loading.swift in Sources */,
 				82A01FA2259145BC00D54953 /* OrganizationPartType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
