@@ -11,6 +11,7 @@
 		393D9561259275DE00B436D7 /* Portfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D9560259275DE00B436D7 /* Portfolio.swift */; };
 		393D95642592764500B436D7 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D95632592764500B436D7 /* Organization.swift */; };
 		393D95672592777F00B436D7 /* EmployeeOrganizationPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D95662592777F00B436D7 /* EmployeeOrganizationPart.swift */; };
+		397EEAFB259A727F00C47FE0 /* ChangeInitiativeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397EEAFA259A727F00C47FE0 /* ChangeInitiativeDetailsViewController.swift */; };
 		82A01F7C2591432600D54953 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A01F7B2591432600D54953 /* AppDelegate.swift */; };
 		82A01F7E2591432600D54953 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A01F7D2591432600D54953 /* SceneDelegate.swift */; };
 		82A01F802591432600D54953 /* RoadMapItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A01F7F2591432600D54953 /* RoadMapItemViewController.swift */; };
@@ -50,6 +51,7 @@
 		393D9560259275DE00B436D7 /* Portfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portfolio.swift; sourceTree = "<group>"; };
 		393D95632592764500B436D7 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		393D95662592777F00B436D7 /* EmployeeOrganizationPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeOrganizationPart.swift; sourceTree = "<group>"; };
+		397EEAFA259A727F00C47FE0 /* ChangeInitiativeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeInitiativeDetailsViewController.swift; sourceTree = "<group>"; };
 		44D57B21EAC920253B3EAAA5 /* Pods-Essentials.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentials.release.xcconfig"; path = "Target Support Files/Pods-Essentials/Pods-Essentials.release.xcconfig"; sourceTree = "<group>"; };
 		82A01F782591432600D54953 /* Essentials.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Essentials.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82A01F7B2591432600D54953 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				82DD38B625992D50008021B0 /* TeamViewController.swift */,
 				BEC5FDD325993BA000F4D4D3 /* SurveyDetailsViewController.swift */,
 				BEC5FDD625993BC300F4D4D3 /* QuestionViewController.swift */,
+				397EEAFA259A727F00C47FE0 /* ChangeInitiativeDetailsViewController.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				82DD38B125992D1A008021B0 /* EmployeeInfoViewController.swift in Sources */,
 				82A01FDB259229D600D54953 /* RoadMapItemDetailsViewController.swift in Sources */,
 				BEC5FDD725993BC300F4D4D3 /* QuestionViewController.swift in Sources */,
+				397EEAFB259A727F00C47FE0 /* ChangeInitiativeDetailsViewController.swift in Sources */,
 				393D95642592764500B436D7 /* Organization.swift in Sources */,
 				82DD38B425992D35008021B0 /* TeamDetailsViewController.swift in Sources */,
 				BEC5FDD425993BA000F4D4D3 /* SurveyDetailsViewController.swift in Sources */,

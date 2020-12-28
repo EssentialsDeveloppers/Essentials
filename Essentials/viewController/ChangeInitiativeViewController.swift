@@ -2,12 +2,12 @@
 //  ChangeInitiativeController.swift
 //  Essentials
 //
-//  Created by Sébastien De Pauw on 22/12/2020.
+//  Created by Kilian Hoefman on 28/12/2020.
 //
 
 import UIKit
 
-class ChangeInitiativeViewController: UIViewController {
+class ChangeInitiativeViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
