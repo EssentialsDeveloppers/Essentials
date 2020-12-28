@@ -10,4 +10,13 @@ import UIKit
 
 class ChangeInitiativeDetailsViewController : UIViewController {
     
+    var changeInitiative : ChangeInitiative?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print(changeInitiative?.changeType?.id ?? "oops")
+        print(changeInitiative?.changeSponsor?.firstName ?? "oops")
+        print(changeInitiative?.description ?? "oops")
+        print(changeInitiative?.progress ?? "oops")
+    }
 }
