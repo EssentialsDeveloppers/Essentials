@@ -11,7 +11,7 @@ class QuestionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Survey detail"
+        title = "Survey"
 
         // Do any additional setup after loading the view.
     }
