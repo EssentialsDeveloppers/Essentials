@@ -126,4 +126,11 @@ class RoadMapItemDetailsViewController: UIViewController {
         dateFormatter.timeStyle = .short
         return dateFormatter.string(from: date)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let survey = segue.destination as? SurveyViewController else {
+            return
+        }
+        survey.roadMapItem = roadMapItem
+    }
 }

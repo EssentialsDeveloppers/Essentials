@@ -9,9 +9,11 @@ import UIKit
 
 class QuestionViewController: UIViewController {
 
+    var roadMapItem: RoadMapItem?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Survey"
+        title = "Survey overview"
 
         // Do any additional setup after loading the view.
     }
