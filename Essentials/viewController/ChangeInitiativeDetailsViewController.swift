@@ -21,8 +21,6 @@ class ChangeInitiativeDetailsViewController : UIViewController, MFMailComposeVie
     @IBOutlet weak var progressPercentage: UILabel!
     @IBOutlet weak var changeManagerName: UILabel!
     @IBOutlet weak var emailChangeManager: UILabel!
-    @IBOutlet weak var mailToChangeManager: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
@@ -30,7 +28,6 @@ class ChangeInitiativeDetailsViewController : UIViewController, MFMailComposeVie
     
     private func initView() {
         guard let data = changeInitiative else { return }
-        
         //Change Initiative
         titleChangeInitiative.text = data.title
         descriptionText.text = data.description
