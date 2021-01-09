@@ -26,6 +26,10 @@ class ChangeInitiativeDetailsViewController : UIViewController, MFMailComposeVie
         initView()
     }
     
+    /**
+     Method for initializing the view and filling all labels
+     - Author: Kilian Hoefman
+     */
     private func initView() {
         guard let data = changeInitiative else { return }
         //Change Initiative
@@ -42,6 +46,13 @@ class ChangeInitiativeDetailsViewController : UIViewController, MFMailComposeVie
 
     }
     
+    /**
+     Extra functionality: method for sending an email to a change sponsor when problems or questions arise. Used MFMailComposeViewController to open the iOS mail application
+     
+     URL: https://developer.apple.com/documentation/messageui/mfmailcomposeviewcontroller
+     
+     - Author: Kilian Hoefman
+     */
     @IBAction func sendMailToChangeManager(_ sender: UIButton!){
         let emailChangeManager = changeInitiative!.changeSponsor!.email
         let subject = "Questions about " + changeInitiative!.title + " initiative"
@@ -56,7 +67,7 @@ class ChangeInitiativeDetailsViewController : UIViewController, MFMailComposeVie
 
             present(mail, animated: true)
         }else{
-            let alert = UIAlertController(title: "Unavailable email", message: "The email service is currently unavailable on your device", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: "Email unavailable", message: "The email service is currently unavailable on your device", preferredStyle: UIAlertController.Style.alert)
             let alertAction = UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default)
                     {
                         (UIAlertAction) -> Void in
@@ -66,17 +77,23 @@ class ChangeInitiativeDetailsViewController : UIViewController, MFMailComposeVie
                     {
                         () -> Void in
                     }
-            
         }
     }
+    
+    /**
+     Function to close MFMailComposeView when the user decides to cancel the email.
+     User gets redirected to the detailscreen
+     - Author: Kilian Hoefman
+     */
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
                 controller.dismiss(animated: true)
             }
     
     
-    /*
-     Time formatter
+    /**
+     Method for formatting datetime coming from the API. Displayed the date as Day, number month year hour:minutes
+     - Author: Kilian Hoefman
      */
     private func formatDateTime(date: String) -> String {
         let initialDateFormatter = DateFormatter()
