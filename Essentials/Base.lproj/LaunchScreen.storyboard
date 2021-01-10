@@ -17,13 +17,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="essentials-logo" translatesAutoresizingMaskIntoConstraints="NO" id="EBr-7q-nfl">
-                                <rect key="frame" x="20" y="341" width="374" height="214"/>
+                                <rect key="frame" x="20" y="144" width="374" height="618"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="EBr-7q-nfl" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="L6j-UZ-ePp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EBr-7q-nfl" secondAttribute="bottom" constant="100" id="E4c-4d-xIX"/>
+                            <constraint firstItem="EBr-7q-nfl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="M8N-ep-O3t"/>
                             <constraint firstAttribute="trailing" secondItem="EBr-7q-nfl" secondAttribute="trailing" constant="20" id="Tta-D6-bPs"/>
                             <constraint firstItem="EBr-7q-nfl" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dZ5-sm-t5v"/>
                             <constraint firstItem="EBr-7q-nfl" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" id="kIc-Xu-QFH"/>
