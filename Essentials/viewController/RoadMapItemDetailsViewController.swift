@@ -7,25 +7,29 @@
 
 import UIKit
 import EventKit
+import Alamofire
 /**
  - Author: Ziggy Moens
  */
 class RoadMapItemDetailsViewController: UIViewController {
     //MARK: - View
-    ///
+    ///Outlet to the Label with the name "Title" on the storyboard
     @IBOutlet weak var titleRoadMap: UILabel!
-    ///
+    ///Outlet to the Label with the name "StartDate" on the storyboard
     @IBOutlet weak var startDateRoadMap: UILabel!
-    ///
+    ///Outlet to the Label with the name "EndDate" on the storyboard
     @IBOutlet weak var endDateRoadMap: UILabel!
-    ///
-    @IBOutlet weak var AmountOfQuestionsRoadMap: UILabel!
+    ///Outlet to the Label with the name "AmountOfQuestions" on the storyboard
+    @IBOutlet weak var amountOfQuestionsRoadMap: UILabel!
+    ///Outlet to the button with the name "Survey Btn" on the storyboard
+    @IBOutlet weak var surveyButton: UIButton!
     
     //MARK: - Controller
     ///
     var roadMapItem: RoadMapItem?
-    
     /**
+     Overrides the function viewDidLoad, this one starts after the view has been loaded, here we will trigger initView function
+     
      - Author: Ziggy Moens
      */
     override func viewDidLoad() {
@@ -34,18 +38,26 @@ class RoadMapItemDetailsViewController: UIViewController {
     }
     
     /**
+     this function will initialize the text from the labels on the StoryBoard
+     
      - Author: Ziggy Moens
      */
     private func initView(){
+        fetchRoadMapItem()
         guard let data = roadMapItem else { return }
         titleRoadMap.text = data.title
         startDateRoadMap.text = getDateString(date: data.startDate)
         endDateRoadMap.text = getDateString(date: data.endDate)
-        AmountOfQuestionsRoadMap.text = String(data.assessment!.questions.count)
+        amountOfQuestionsRoadMap.text = String(data.assessment!.questions.count)
+        surveyButton.layer.cornerRadius = 10
+        surveyButton.layer.masksToBounds = true
     }
     
     /**
+     this function will make it possible to save the roadmapitem to the calendar, also check permissions and ask them if there not given
+    
      - Author: Ziggy Moens
+     - Remark: EXTRA FUNCTIONALITEIT
      */
     @IBAction func addToCalender(_ sender: UIButton) {
         let eventStore = EKEventStore()
@@ -79,7 +91,10 @@ class RoadMapItemDetailsViewController: UIViewController {
     }
     
     /**
+     this function will make a calender event and save this in the calender of the iPhone
+        
      - Author: Ziggy Moens
+     - Remark: EXTRA FUNCTIONALITEIT
      */
     func insertEvent(store: EKEventStore) {
         Loading.startLoading(view: self)
@@ -103,6 +118,8 @@ class RoadMapItemDetailsViewController: UIViewController {
     }
     
     /**
+        this function will take a string and parse this to a real Date
+     
      - Author: Ziggy Moens
      */
     func getDate(date: String) -> Date {
@@ -114,6 +131,8 @@ class RoadMapItemDetailsViewController: UIViewController {
     }
     
     /**
+     this function will take a Date and parse this to a string with medium dateStyle and short timeStyle
+     
      - Author: Ziggy Moens
      */
     func getDateString(date: String) -> String{
@@ -126,4 +145,6 @@ class RoadMapItemDetailsViewController: UIViewController {
         dateFormatter.timeStyle = .short
         return dateFormatter.string(from: date)
     }
+    
+    
 }

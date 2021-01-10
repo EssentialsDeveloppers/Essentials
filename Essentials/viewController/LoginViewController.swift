@@ -19,6 +19,8 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var changeManagerPicker: UIPickerView!
     /// Outlet to Switch with name "Change Manager Switch" on the StoryBoar
     @IBOutlet weak var changeManagerSwitch: UISwitch!
+    /// Outlet to Button with name "Login Button" on the storyboard
+    @IBOutlet weak var loginButton: UIButton!
     
     //MARK: - Controller
     
@@ -40,6 +42,9 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         super.viewDidLoad()
         
         self.navigationItem.setHidesBackButton(true, animated: true)
+        
+        loginButton.layer.cornerRadius = 10
+        loginButton.layer.masksToBounds = true
         
         employeePicker.delegate = self
         employeePicker.dataSource = self

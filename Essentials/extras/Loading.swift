@@ -29,7 +29,7 @@ struct Loading{
     }
     
     /**
-     hinding the active loading alert
+     hiding the active loading alert
      
      - Author: Ziggy Moens
      */
