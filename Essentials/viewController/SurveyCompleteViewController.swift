@@ -11,9 +11,13 @@ class SurveyCompleteViewController: UIViewController {
 
     var roadMapItem: RoadMapItem?
     
+    @IBOutlet weak var headerLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Survey overview"
+        title = "Survey was finished"
+        headerLabel.text = "\(roadMapItem!.title) completed!"
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Share", style: .plain, target: self, action: #selector(share(sender:)))
         // Do any additional setup after loading the view.
     }

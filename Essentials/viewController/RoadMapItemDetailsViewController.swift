@@ -7,6 +7,7 @@
 
 import UIKit
 import EventKit
+import Alamofire
 /**
  - Author: Ziggy Moens
  */
@@ -39,6 +40,7 @@ class RoadMapItemDetailsViewController: UIViewController {
      - Author: Ziggy Moens
      */
     private func initView(){
+        fetchRoadMapItem()
         guard let data = roadMapItem else { return }
         titleRoadMap.text = data.title
         startDateRoadMap.text = getDateString(date: data.startDate)
@@ -130,42 +132,4 @@ class RoadMapItemDetailsViewController: UIViewController {
     }
     
     
-    //MARK: - Sébastien De Pauw
-    
-    enum Segues{
-        static let toSurveyCompleted = "toSurveyCompleted"
-        static let toSurvey = "toSurvey"
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Segues.toSurveyCompleted {
-            let surveyComplete = segue.destination as! SurveyCompleteViewController
-            surveyComplete.roadMapItem = roadMapItem
-        } else if segue.identifier == Segues.toSurvey {
-            let survey = segue.destination as! SurveyViewController
-            survey.questions = notFilledInQuestionArrayInit()
-            survey.rmi = roadMapItem
-        }
-    }
-    
-    @IBAction func surveyButtonTapped(_ sender: UIButton) {
-        let arr = notFilledInQuestionArrayInit()
-        if arr.isEmpty{
-            performSegue(withIdentifier: RoadMapItemDetailsViewController.Segues.toSurveyCompleted, sender: nil)
-        } else{
-            performSegue(withIdentifier: RoadMapItemDetailsViewController.Segues.toSurvey, sender: nil)
-        }
-    }
-    
-    func notFilledInQuestionArrayInit() -> [Question]{
-        var arr: [Question] = []
-        if(!Globals.isChangeManager){
-            for i in 0 ..< roadMapItem!.assessment!.questions.count {
-                if(!roadMapItem!.assessment!.questions[i].questionRegistered!.keys.contains(String(Globals.employee!.id))){
-                    arr.append(roadMapItem!.assessment!.questions[i])
-                }
-            }
-        }
-        return arr
-    }
 }

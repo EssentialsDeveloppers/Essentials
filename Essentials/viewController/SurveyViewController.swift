@@ -40,6 +40,7 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         for item in currentQuestion!.possibleAnswers {
             listOfAnswers.append(item.key)
         }
+        listOfAnswers.sort()
         mpPicker.delegate = self
         mpPicker.dataSource = self
         ynPicker.delegate = self
@@ -52,6 +53,8 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         openView.isHidden = true
         ratingBarView.isHidden = true
         yesNoView.isHidden = true
+        ynPicker.isHidden = true
+        mpPicker.isHidden = true
         
         if(currentQuestion != nil){
             //set the question
@@ -75,6 +78,10 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     func yesNoQuestion(question: Question?){
         yesNoView.isHidden = false
+        ynPicker.isHidden = false
+        ynPicker.reloadAllComponents()
+        self.mpPicker.selectRow(0, inComponent: 0, animated: true)
+        self.pickerView(self.mpPicker, didSelectRow: 0, inComponent: 0)
     }
     
     func rangedQuestion(question: Question?){
@@ -84,6 +91,7 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     func multipleChoiceQuestion(question: Question?){
         MPView.isHidden = false
+        mpPicker.isHidden = false
         mpPicker.reloadAllComponents()
         self.mpPicker.selectRow(0, inComponent: 0, animated: true)
         self.pickerView(self.mpPicker, didSelectRow: 0, inComponent: 0)
@@ -96,6 +104,7 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let questions = segue.destination as! SurveyCompleteViewController
         questions.roadMapItem = self.rmi
+        questions.navigationItem.hidesBackButton = true
     }
     
     enum Segues{
