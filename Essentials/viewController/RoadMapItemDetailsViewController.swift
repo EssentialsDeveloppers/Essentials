@@ -20,10 +20,10 @@ class RoadMapItemDetailsViewController: UIViewController {
     ///Outlet to the Label with the name "EndDate" on the storyboard
     @IBOutlet weak var endDateRoadMap: UILabel!
     ///Outlet to the Label with the name "AmountOfQuestions" on the storyboard
-    @IBOutlet weak var AmountOfQuestionsRoadMap: UILabel!
+    @IBOutlet weak var amountOfQuestionsRoadMap: UILabel!
     ///Outlet to the button with the name "Survey Btn" on the storyboard
     @IBOutlet weak var surveyButton: UIButton!
-
+    
     //MARK: - Controller
     ///
     var roadMapItem: RoadMapItem?
@@ -48,7 +48,7 @@ class RoadMapItemDetailsViewController: UIViewController {
         titleRoadMap.text = data.title
         startDateRoadMap.text = getDateString(date: data.startDate)
         endDateRoadMap.text = getDateString(date: data.endDate)
-        AmountOfQuestionsRoadMap.text = String(data.assessment!.questions.count)
+        amountOfQuestionsRoadMap.text = String(data.assessment!.questions.count)
         surveyButton.layer.cornerRadius = 10
         surveyButton.layer.masksToBounds = true
     }
