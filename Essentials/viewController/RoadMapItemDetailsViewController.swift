@@ -13,19 +13,17 @@ import Alamofire
  */
 class RoadMapItemDetailsViewController: UIViewController {
     //MARK: - View
-    ///Outlet to the title of the roadmap
+    ///Outlet to the Label with the name "Title" on the storyboard
     @IBOutlet weak var titleRoadMap: UILabel!
-    ///Outlet to the startdate label
+    ///Outlet to the Label with the name "StartDate" on the storyboard
     @IBOutlet weak var startDateRoadMap: UILabel!
-    ///Outlet to the enddate label
+    ///Outlet to the Label with the name "EndDate" on the storyboard
     @IBOutlet weak var endDateRoadMap: UILabel!
-    ///Outlet to the amount of questions label
+    ///Outlet to the Label with the name "AmountOfQuestions" on the storyboard
     @IBOutlet weak var AmountOfQuestionsRoadMap: UILabel!
-    
-    @IBOutlet weak var SurveyBtn: UIButton!
-    
-    //Outlet to the survey button
+    ///Outlet to the button with the name "Survey Btn" on the storyboard
     @IBOutlet weak var surveyButton: UIButton!
+
     //MARK: - Controller
     ///
     var roadMapItem: RoadMapItem?

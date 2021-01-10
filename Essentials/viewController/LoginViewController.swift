@@ -19,7 +19,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var changeManagerPicker: UIPickerView!
     /// Outlet to Switch with name "Change Manager Switch" on the StoryBoar
     @IBOutlet weak var changeManagerSwitch: UISwitch!
-    //
+    /// Outlet to Button with name "Login Button" on the storyboard
     @IBOutlet weak var loginButton: UIButton!
     
     //MARK: - Controller
