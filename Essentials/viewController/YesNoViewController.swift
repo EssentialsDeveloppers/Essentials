@@ -1,19 +1,16 @@
 //
-//  QuestionViewController.swift
+//  YesNoViewController.swift
 //  Essentials
 //
-//  Created by Sébastien De Pauw on 27/12/2020.
+//  Created by Sébastien De Pauw on 09/01/2021.
 //
 
 import UIKit
 
-class QuestionViewController: UIViewController {
+class YesNoViewController: UIViewController {
 
-    var roadMapItem: RoadMapItem?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Survey overview"
 
         // Do any additional setup after loading the view.
     }

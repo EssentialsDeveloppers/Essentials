@@ -9,150 +9,178 @@ import UIKit
 import ReplayKit
 import Alamofire
 
-class SurveyViewController: UIViewController {
+class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     //MARK: - Controller
-    /// Local selected item
-    var roadMapItem: RoadMapItem?
-    var empId: Int = 0;
-    var currentQuestion: Int = 0;
-
+    var questions: [Question] = []
+    var currentQuestion: Question?
+    var listOfAnswers: [String] = []
+    var selectedMP: String?
+    var selectedYN: String?
+    var currentQuestionIndex = 0
+    var rmi: RoadMapItem?
+    
     @IBOutlet weak var question: UILabel!
-    @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var yesNoView: UIView!
     @IBOutlet weak var ratingBarView: UIView!
     @IBOutlet weak var openView: UIView!
     @IBOutlet weak var MPView: UIView!
-    @IBOutlet weak var MPStackView: UIStackView!
+    @IBOutlet weak var nextBtn: UIButton!
+    @IBOutlet weak var mpPicker: UIPickerView!
+    @IBOutlet weak var ynPicker: UIPickerView!
+    @IBOutlet weak var openTextField: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Survey"
         initView()
-        // Do any additional setup after loading the view.
     }
     
     private func initView(){
-        guard let data = roadMapItem else { return }
-        setEmployee()
-        setLastFilledInQuestion(data:data)
-        setUpScreen(data:data)
-    }
-    
-    func setEmployee(){
-        if(Globals.isChangeManager){
-            empId = Globals.changeManager?.id ?? 0
-        } else {
-            empId = Globals.employee?.id ?? 0
+        currentQuestion = questions[0]
+        for item in currentQuestion!.possibleAnswers {
+            listOfAnswers.append(item.key)
         }
+        mpPicker.delegate = self
+        mpPicker.dataSource = self
+        ynPicker.delegate = self
+        ynPicker.dataSource = self
+        setUpScreen()
     }
     
-    func setLastFilledInQuestion(data: RoadMapItem?){
-        for i in 0 ..< (data?.assessment?.questions ?? []).count {
-            if(data?.assessment?.questions[i].questionRegistered?.keys.contains(String(empId)) ?? false){
-                currentQuestion = i
-            }
-        }
-    }
-    
-    func setUpScreen(data: RoadMapItem?){
-        let q = data?.assessment?.questions[currentQuestion] ?? nil
+    func setUpScreen(){
+        MPView.isHidden = true
+        openView.isHidden = true
+        ratingBarView.isHidden = true
+        yesNoView.isHidden = true
         
-        if(q != nil){
+        if(currentQuestion != nil){
             //set the question
-            question.text = q?.questionString
-            switch q?.type {
+            question.text = currentQuestion?.questionString
+            //set the question view
+            switch currentQuestion?.type {
             case 0:
-                yesNoQuestion(question:q)
+                yesNoQuestion(question:currentQuestion)
             case 1:
-                rangedQuestion(question:q)
+                rangedQuestion(question:currentQuestion)
             case 2:
-                multipleChoiceQuestion(question:q)
+                multipleChoiceQuestion(question:currentQuestion)
             case 3:
-                openQuestion(question:q)
+                openQuestion(question:currentQuestion)
             default: break;
             }
         }
         
-        if(data?.assessment?.questions.count ?? 0 - currentQuestion + 1 < 0 ){
-            nextBtn.setTitle("Finish", for: .normal)
-        }else{
-            nextBtn.setTitle("Next", for: .normal)
-        }
+        nextBtn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
     
     func yesNoQuestion(question: Question?){
-    
-        for item in question?.possibleAnswers ?? [String: Int]() {
-
-        }
+        yesNoView.isHidden = false
     }
     
     func rangedQuestion(question: Question?){
+        ratingBarView.isHidden = false
         
-        for item in question?.possibleAnswers ?? [String: Int]() {
-        }
     }
     
     func multipleChoiceQuestion(question: Question?){
-        
         MPView.isHidden = false
-        var y = 0
-        for item in question?.possibleAnswers ?? [String: Int]() {
-            let button = UIButton()
-            button.setTitle(item.key, for: .normal)
-            button.frame = CGRect(x:0, y:y, width: 300, height: 60)
-            y = y + 60
-            button.addTarget(self,
-                             action: #selector(SurveyViewController.buttonAction(sender:)),
-                             for: .touchUpInside)
-            MPStackView.addSubview(button)
-        }
-        
-        
+        mpPicker.reloadAllComponents()
+        self.mpPicker.selectRow(0, inComponent: 0, animated: true)
+        self.pickerView(self.mpPicker, didSelectRow: 0, inComponent: 0)
     }
     
     func openQuestion(question: Question?){
-        
-        for item in question?.possibleAnswers ?? [String: Int]() {
-        }
+        openView.isHidden = false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let questions = segue.destination as? QuestionViewController else {
-            return
-        }
-        questions.roadMapItem = roadMapItem
+        let questions = segue.destination as! SurveyCompleteViewController
+        questions.roadMapItem = self.rmi
+    }
+    
+    enum Segues{
+        static let toSurveyCompleted = "toSurveyCompleted"
     }
     
     @objc
-    func buttonAction(sender: UIButton!) {
-        print(sender.currentTitle)
-        //TODO add post method
-        //TODO navigate
+    func buttonAction() {
+        questions.remove(at: 0)
+        var arr: [String] = []
+        if(!yesNoView.isHidden){
+            arr.append(selectedYN!)
+        } else if(!MPView.isHidden) {
+            arr.append(selectedMP!)
+        } else if(!openView.isHidden){
+            arr.append(openTextField.text)
+        } /*else if(!ratingBarView.isHidden){
+            arr.append(<#T##newElement: String##String#>)
+        }*/
+        postQuestion(params: arr)
+        
+        if(questions.isEmpty){
+            performSegue(withIdentifier: SurveyViewController.Segues.toSurveyCompleted, sender: nil)
+        } else {
+            initView()
+        }
     }
 
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return listOfAnswers.count
+    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return listOfAnswers[row]
     }
-    */
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if(pickerView.tag == 1){
+            let answer = self.listOfAnswers[row]
+            self.selectedMP = answer
+            self.selectedYN = nil
+            
+        } else if (pickerView.tag == 2){
+            let answer = self.listOfAnswers[row]
+            self.selectedMP = nil
+            self.selectedYN = answer
+        }
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
 
 }
 
 // MARK: - ALAMOFIRE API
 extension SurveyViewController {
-    func postQuestion(){
-        AF.request(
-            "https://essentialsapi-forios.azurewebsites.net/api/ChangeGroups/GetChangeGroupForUser/\(Globals.isChangeManager ? Globals.changeManager!.id : Globals.employee!.id)",
-            method: .post,
-            parameters: [:]
-        ).validate().responseDecodable(of: [ChangeGroup].self) { (response) in
+    func postQuestion(params: [String]){
+        var request = URLRequest(url: URL(string: Globals.urlString + "/Questions/PostAnswerToQuestion/\(currentQuestion!.id)/\(Globals.employee!.id)")!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try! JSONSerialization.data(withJSONObject: params)
+        AF.request(request).responseJSON { (response) in
+            debugPrint(response)
+        }
+        
+//        AF.request(
+//            Globals.urlString + "/Questions/PostAnswerToQuestion/\(currentQuestion!.id)/\(empId)",
+//            method: .post,
+//            parameters: ["test"],
+//            encoding: JSONEncoding.default
+//        ).responseJSON { (response) in
+//            debugPrint(response)
+//                switch response.result {
+//                case .success(_):
+//                    print("succes")
+//                    break
+//                case .failure(let error):
+//                    print(error)
+//                    break
+//                }
+//            }
+
         }
     }
-}
+    
+    
+

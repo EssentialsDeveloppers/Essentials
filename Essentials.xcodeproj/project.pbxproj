@@ -39,8 +39,11 @@
 		82DD38B425992D35008021B0 /* TeamDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD38B325992D35008021B0 /* TeamDetailsViewController.swift */; };
 		82DD38B725992D50008021B0 /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD38B625992D50008021B0 /* TeamViewController.swift */; };
 		9008166023395A299D4C91D8 /* Pods_Essentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DE121FFFBC9F6E6CAF612E4 /* Pods_Essentials.framework */; };
+		BE0FC62325AB0522002DB47F /* SurveyTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0FC62225AB0522002DB47F /* SurveyTestViewController.swift */; };
+		BE0FC62625AB0556002DB47F /* Questions1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0FC62525AB0556002DB47F /* Questions1ViewController.swift */; };
+		BE0FC62925AB0565002DB47F /* Questions2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0FC62825AB0565002DB47F /* Questions2ViewController.swift */; };
 		BEC5FDD425993BA000F4D4D3 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC5FDD325993BA000F4D4D3 /* SurveyViewController.swift */; };
-		BEC5FDD725993BC300F4D4D3 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC5FDD625993BC300F4D4D3 /* QuestionViewController.swift */; };
+		BEC5FDD725993BC300F4D4D3 /* SurveyCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC5FDD625993BC300F4D4D3 /* SurveyCompleteViewController.swift */; };
 		BEFE6A7725928C4B0081D4BA /* ChangeInitiativeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFE6A7625928C4B0081D4BA /* ChangeInitiativeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,8 +84,11 @@
 		82DD38B025992D1A008021B0 /* EmployeeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeInfoViewController.swift; sourceTree = "<group>"; };
 		82DD38B325992D35008021B0 /* TeamDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsViewController.swift; sourceTree = "<group>"; };
 		82DD38B625992D50008021B0 /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
+		BE0FC62225AB0522002DB47F /* SurveyTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTestViewController.swift; sourceTree = "<group>"; };
+		BE0FC62525AB0556002DB47F /* Questions1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions1ViewController.swift; sourceTree = "<group>"; };
+		BE0FC62825AB0565002DB47F /* Questions2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions2ViewController.swift; sourceTree = "<group>"; };
 		BEC5FDD325993BA000F4D4D3 /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
-		BEC5FDD625993BC300F4D4D3 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		BEC5FDD625993BC300F4D4D3 /* SurveyCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyCompleteViewController.swift; sourceTree = "<group>"; };
 		BEFE6A7625928C4B0081D4BA /* ChangeInitiativeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeInitiativeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,8 +182,11 @@
 				82DD38B325992D35008021B0 /* TeamDetailsViewController.swift */,
 				82DD38B625992D50008021B0 /* TeamViewController.swift */,
 				BEC5FDD325993BA000F4D4D3 /* SurveyViewController.swift */,
-				BEC5FDD625993BC300F4D4D3 /* QuestionViewController.swift */,
+				BEC5FDD625993BC300F4D4D3 /* SurveyCompleteViewController.swift */,
 				397EEAFA259A727F00C47FE0 /* ChangeInitiativeDetailsViewController.swift */,
+				BE0FC62225AB0522002DB47F /* SurveyTestViewController.swift */,
+				BE0FC62525AB0556002DB47F /* Questions1ViewController.swift */,
+				BE0FC62825AB0565002DB47F /* Questions2ViewController.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -323,7 +332,8 @@
 				82A01FA5259145BC00D54953 /* Survey.swift in Sources */,
 				82DD38B125992D1A008021B0 /* EmployeeInfoViewController.swift in Sources */,
 				82A01FDB259229D600D54953 /* RoadMapItemDetailsViewController.swift in Sources */,
-				BEC5FDD725993BC300F4D4D3 /* QuestionViewController.swift in Sources */,
+				BE0FC62325AB0522002DB47F /* SurveyTestViewController.swift in Sources */,
+				BEC5FDD725993BC300F4D4D3 /* SurveyCompleteViewController.swift in Sources */,
 				397EEAFB259A727F00C47FE0 /* ChangeInitiativeDetailsViewController.swift in Sources */,
 				393D95642592764500B436D7 /* Organization.swift in Sources */,
 				82DD38B425992D35008021B0 /* TeamDetailsViewController.swift in Sources */,
@@ -342,12 +352,14 @@
 				82A01FA7259145BC00D54953 /* ChangeGroup.swift in Sources */,
 				82A01FA6259145BC00D54953 /* ChangeManager.swift in Sources */,
 				82A01FA0259145BC00D54953 /* Assessment.swift in Sources */,
+				BE0FC62625AB0556002DB47F /* Questions1ViewController.swift in Sources */,
 				82A020062594B30900D54953 /* NoAnimationSegue.swift in Sources */,
 				82A01F7C2591432600D54953 /* AppDelegate.swift in Sources */,
 				82A01FAA259145BC00D54953 /* OrganizationPart.swift in Sources */,
 				82A01F7E2591432600D54953 /* SceneDelegate.swift in Sources */,
 				82A0200325937EE300D54953 /* Loading.swift in Sources */,
 				82A01FA2259145BC00D54953 /* OrganizationPartType.swift in Sources */,
+				BE0FC62925AB0565002DB47F /* Questions2ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

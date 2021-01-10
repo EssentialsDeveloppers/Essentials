@@ -72,4 +72,6 @@ class Globals {
     static var employee: Employee?
     /// Global Employee Object,  if isChangeManager is false, this object will be nil
     static var changeManager: ChangeManager?
+    /// Global url for Post and Get methods
+    static var urlString: String = "https://essentialsapi-forios.azurewebsites.net/api"
 }
