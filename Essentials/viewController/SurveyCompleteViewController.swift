@@ -10,37 +10,62 @@ import UIKit
 class SurveyCompleteViewController: UIViewController {
 
     var roadMapItem: RoadMapItem?
+    var beginDate: Date?
     
     @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var homeBtn: UIButton!
+    @IBOutlet weak var nrQuestionsLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Survey was finished"
         headerLabel.text = "\(roadMapItem!.title) completed!"
+        homeBtn.layer.cornerRadius = 10
+        homeBtn.layer.masksToBounds = true
+        setDetails()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(share(sender:)))
+    }
+    /**
+    Override method to pass the Selected Change Initiative to the details View Controller via a segue
+    - Author: Kilian Hoefman
+    */
+    func setDetails(){
+        titleLabel.text?.append(roadMapItem!.title)
+        nrQuestionsLabel.text?.append(String(roadMapItem!.assessment!.questions.count))
+        let ti = Date().timeIntervalSinceReferenceDate - ((beginDate?.timeIntervalSinceReferenceDate) ?? Date().timeIntervalSinceReferenceDate)
+        timeLabel.text?.append(stringFromTimeInterval(interval: ti) as String)
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Share", style: .plain, target: self, action: #selector(share(sender:)))
-        // Do any additional setup after loading the view.
+    }
+    
+    /**Override method to pass the Selected Change Initiative to the details View Controller via a segue
+    - Author: Kilian Hoefman
+    */
+    func stringFromTimeInterval(interval: TimeInterval) -> NSString {
+      let ti = NSInteger(interval)
+      let ms = Int(((interval).truncatingRemainder(dividingBy: (1))) * 1000)
+      let seconds = ti % 60
+      let minutes = (ti / 60) % 60
+      let hours = (ti / 3600)
+      return NSString(format: "%0.2d:%0.2d:%0.2d.%0.3d",hours,minutes,seconds,ms)
     }
     
     @objc func share(sender:UIView){
             UIGraphicsBeginImageContext(view.frame.size)
             view.layer.render(in: UIGraphicsGetCurrentContext()!)
-            let image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
 
-            let textToShare = "Check out my app"
+            let textToShare = "\(Globals.employee!.firstName) \(Globals.employee!.lastName) has finished \(roadMapItem!.title)"
+            let myWebsite = URL(string: "https://essentialstoolkit.netlify.app")
+        
+            let objectsToShare = [textToShare, myWebsite!, #imageLiteral(resourceName: "essentials-logo")] as [Any]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
 
-            if let myWebsite = URL(string: "http://itunes.apple.com/app/idXXXXXXXXX") {//Enter link to your app here
-                let objectsToShare = [textToShare, myWebsite, image ?? #imageLiteral(resourceName: "app-logo")] as [Any]
-                let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-
-                //Excluded Activities
-                activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
-                //
-
-                activityVC.popoverPresentationController?.sourceView = sender
-                self.present(activityVC, animated: true, completion: nil)
-            }    }
+            activityVC.popoverPresentationController?.sourceView = sender
+            self.present(activityVC, animated: true, completion: nil)
+    }
     
 
     /*

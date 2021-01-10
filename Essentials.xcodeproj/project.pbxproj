@@ -15,7 +15,7 @@
 		82A01F7C2591432600D54953 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A01F7B2591432600D54953 /* AppDelegate.swift */; };
 		82A01F7E2591432600D54953 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A01F7D2591432600D54953 /* SceneDelegate.swift */; };
 		82A01F802591432600D54953 /* RoadMapItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A01F7F2591432600D54953 /* RoadMapItemViewController.swift */; };
-		82A01F832591432600D54953 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82A01F812591432600D54953 /* Main.storyboard */; };
+		82A01F832591432600D54953 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82A01F812591432600D54953 /* Main.storyboard */; settings = {ASSET_TAGS = (3, ); }; };
 		82A01F852591432800D54953 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82A01F842591432800D54953 /* Assets.xcassets */; };
 		82A01F882591432800D54953 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82A01F862591432800D54953 /* LaunchScreen.storyboard */; };
 		82A01FA0259145BC00D54953 /* Assessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A01F94259145BB00D54953 /* Assessment.swift */; };
@@ -231,6 +231,8 @@
 			isa = PBXProject;
 			attributes = {
 				KnownAssetTags = (
+					2,
+					3,
 					ChangManagerPicker,
 					employeePicker,
 				);

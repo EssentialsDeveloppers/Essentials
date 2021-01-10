@@ -9,15 +9,29 @@ import UIKit
 import ReplayKit
 import Alamofire
 
+/**
+ - Author: Sébastien De Pauw
+ */
 class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     //MARK: - Controller
+    ///Local list of questions that are not yet filled in
     var questions: [Question] = []
+    ///Current question we are on
     var currentQuestion: Question?
+    ///A list of answers for the current question
     var listOfAnswers: [String] = []
+    ///The selected item in the multiple choice picker
     var selectedMP: String?
+    ///The selected item in the yes/no picker
     var selectedYN: String?
+    ///Current questions index in questions array
     var currentQuestionIndex = 0
+    ///Param passed with segue
     var rmi: RoadMapItem?
+    ///A param for the star selected
+    var starCount = 0;
+    ///Param passed with segue to culculate the time
+    var beginDate = Date()
     
     @IBOutlet weak var question: UILabel!
     @IBOutlet weak var yesNoView: UIView!
@@ -28,15 +42,24 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var mpPicker: UIPickerView!
     @IBOutlet weak var ynPicker: UIPickerView!
     @IBOutlet weak var openTextField: UITextView!
+    @IBOutlet weak var ratingBarStackView: UIStackView!
+    @IBOutlet var ratingBarButtons: [UIButton]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Survey"
+        nextBtn.layer.cornerRadius = 10
+        nextBtn.layer.masksToBounds = true
         initView()
     }
     
+    /**
+     Method to set up all important views on screen en redirect to based on current question
+     - Author: Sébastien De Pauw
+     */
     private func initView(){
         currentQuestion = questions[0]
+        listOfAnswers.removeAll()
         for item in currentQuestion!.possibleAnswers {
             listOfAnswers.append(item.key)
         }
@@ -48,6 +71,10 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         setUpScreen()
     }
     
+    /**
+     Method to set up all important views on screen en redirect to based on current question
+     - Author: Sébastien De Pauw
+     */
     func setUpScreen(){
         MPView.isHidden = true
         openView.isHidden = true
@@ -76,6 +103,10 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         nextBtn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
     
+    /**
+     Method to set up all important views on screen en redirect to based on current question
+     - Author: Sébastien De Pauw
+     */
     func yesNoQuestion(question: Question?){
         yesNoView.isHidden = false
         ynPicker.isHidden = false
@@ -86,9 +117,27 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     func rangedQuestion(question: Question?){
         ratingBarView.isHidden = false
-        
     }
     
+    /**
+     Method to set up all important views on screen en redirect to based on current question
+     - Author: Sébastien De Pauw
+     */
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        starCount = sender.tag
+        for button in ratingBarButtons {
+            if button.tag <= sender.tag{
+                button.setImage(UIImage(systemName: "star.fill"), for: .normal)
+            } else {
+                button.setImage(UIImage(systemName: "star"), for: .normal)
+            }
+        }
+    }
+    
+    /**
+     Method to set up all important views on screen en redirect to based on current question
+     - Author: Sébastien De Pauw
+     */
     func multipleChoiceQuestion(question: Question?){
         MPView.isHidden = false
         mpPicker.isHidden = false
@@ -97,20 +146,37 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         self.pickerView(self.mpPicker, didSelectRow: 0, inComponent: 0)
     }
     
+    /**
+     Method to set up all important views on screen en redirect to based on current question
+     - Author: Sébastien De Pauw
+     */
     func openQuestion(question: Question?){
         openView.isHidden = false
     }
     
+    /**
+     Method to set up all important views on screen en redirect to based on current question
+     - Author: Sébastien De Pauw
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let questions = segue.destination as! SurveyCompleteViewController
         questions.roadMapItem = self.rmi
+        questions.beginDate = beginDate
         questions.navigationItem.hidesBackButton = true
     }
     
+    /**
+     Method to set up all important views on screen en redirect to based on current question
+     - Author: Sébastien De Pauw
+     */
     enum Segues{
         static let toSurveyCompleted = "toSurveyCompleted"
     }
     
+    /**
+     Method to set up all important views on screen en redirect to based on current question
+     - Author: Sébastien De Pauw
+     */
     @objc
     func buttonAction() {
         questions.remove(at: 0)
@@ -121,9 +187,9 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             arr.append(selectedMP!)
         } else if(!openView.isHidden){
             arr.append(openTextField.text)
-        } /*else if(!ratingBarView.isHidden){
-            arr.append(<#T##newElement: String##String#>)
-        }*/
+        } else if(!ratingBarView.isHidden){
+            arr.append(String(starCount))
+        }
         postQuestion(params: arr)
         
         if(questions.isEmpty){
@@ -133,14 +199,36 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
 
+    /**
+     Method to set up all important views on screen en redirect to based on current question
+     - Author: Sébastien De Pauw
+     */
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return listOfAnswers.count
+        if(pickerView.tag == 1){
+            return listOfAnswers.count
+        } else if (pickerView.tag == 2){
+            return listOfAnswers.count
+        }
+        return 0
     }
     
+    /**
+     Method to set up all important views on screen en redirect to based on current question
+     - Author: Sébastien De Pauw
+     */
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return listOfAnswers[row]
+        if(pickerView.tag == 1){
+            return listOfAnswers[row]
+        } else if (pickerView.tag == 2){
+            return listOfAnswers[row]
+        }
+        return ""
     }
     
+    /**
+     Method to set up all important views on screen en redirect to based on current question
+     - Author: Sébastien De Pauw
+     */
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if(pickerView.tag == 1){
             let answer = self.listOfAnswers[row]
@@ -154,21 +242,37 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
+    /**
+     Method to set up all important views on screen en redirect to based on current question
+     - Author: Sébastien De Pauw
+     */
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-
 }
 
 // MARK: - ALAMOFIRE API
+/**
+ extension to SurveyViewController containing the api calls
+ 
+ - Author: Sébastien De Pauw
+ */
 extension SurveyViewController {
+    /**
+     This method will post a filled in question **to the api**
+     
+     - Returns: Void
+     - Requires: AlamoFire 5.2
+     - Warning: A network connection is needed for this method
+     - Author: Sébastien De Pauw
+     */
     func postQuestion(params: [String]){
         var request = URLRequest(url: URL(string: Globals.urlString + "/Questions/PostAnswerToQuestion/\(currentQuestion!.id)/\(Globals.employee!.id)")!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! JSONSerialization.data(withJSONObject: params)
         AF.request(request).responseJSON { (response) in
-            debugPrint(response)
+            //debugPrint(response)
         }
         
 //        AF.request(
