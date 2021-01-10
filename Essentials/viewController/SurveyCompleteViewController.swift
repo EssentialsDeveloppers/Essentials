@@ -7,6 +7,9 @@
 
 import UIKit
 
+/**
+ - Author: Sébastien De Pauw
+ */
 class SurveyCompleteViewController: UIViewController {
 
     var roadMapItem: RoadMapItem?
@@ -28,21 +31,15 @@ class SurveyCompleteViewController: UIViewController {
         setDetails()
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(share(sender:)))
     }
-    /**
-    Override method to pass the Selected Change Initiative to the details View Controller via a segue
-    - Author: Kilian Hoefman
-    */
+
     func setDetails(){
         titleLabel.text?.append(roadMapItem!.title)
         nrQuestionsLabel.text?.append(String(roadMapItem!.assessment!.questions.count))
         let ti = Date().timeIntervalSinceReferenceDate - ((beginDate?.timeIntervalSinceReferenceDate) ?? Date().timeIntervalSinceReferenceDate)
         timeLabel.text?.append(stringFromTimeInterval(interval: ti) as String)
-        
     }
     
-    /**Override method to pass the Selected Change Initiative to the details View Controller via a segue
-    - Author: Kilian Hoefman
-    */
+    ///Stack overflow code
     func stringFromTimeInterval(interval: TimeInterval) -> NSString {
       let ti = NSInteger(interval)
       let ms = Int(((interval).truncatingRemainder(dividingBy: (1))) * 1000)
@@ -52,6 +49,7 @@ class SurveyCompleteViewController: UIViewController {
       return NSString(format: "%0.2d:%0.2d:%0.2d.%0.3d",hours,minutes,seconds,ms)
     }
     
+    ///Based on Stack overflow code
     @objc func share(sender:UIView){
             UIGraphicsBeginImageContext(view.frame.size)
             view.layer.render(in: UIGraphicsGetCurrentContext()!)
@@ -65,6 +63,15 @@ class SurveyCompleteViewController: UIViewController {
 
             activityVC.popoverPresentationController?.sourceView = sender
             self.present(activityVC, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let homescreen = segue.destination as? HomeViewController else {
+            return
+        }
+        homescreen.isChangeManager = Globals.isChangeManager
+        homescreen.employee = Globals.employee
+        homescreen.changeManager = Globals.changeManager
     }
     
 

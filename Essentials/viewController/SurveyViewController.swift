@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ReplayKit
 import Alamofire
 
 /**
@@ -53,10 +52,6 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         initView()
     }
     
-    /**
-     Method to set up all important views on screen en redirect to based on current question
-     - Author: Sébastien De Pauw
-     */
     private func initView(){
         currentQuestion = questions[0]
         listOfAnswers.removeAll()
@@ -71,10 +66,6 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         setUpScreen()
     }
     
-    /**
-     Method to set up all important views on screen en redirect to based on current question
-     - Author: Sébastien De Pauw
-     */
     func setUpScreen(){
         MPView.isHidden = true
         openView.isHidden = true
@@ -103,10 +94,6 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         nextBtn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
     
-    /**
-     Method to set up all important views on screen en redirect to based on current question
-     - Author: Sébastien De Pauw
-     */
     func yesNoQuestion(question: Question?){
         yesNoView.isHidden = false
         ynPicker.isHidden = false
@@ -119,10 +106,6 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         ratingBarView.isHidden = false
     }
     
-    /**
-     Method to set up all important views on screen en redirect to based on current question
-     - Author: Sébastien De Pauw
-     */
     @IBAction func buttonTapped(_ sender: UIButton) {
         starCount = sender.tag
         for button in ratingBarButtons {
@@ -134,10 +117,6 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
-    /**
-     Method to set up all important views on screen en redirect to based on current question
-     - Author: Sébastien De Pauw
-     */
     func multipleChoiceQuestion(question: Question?){
         MPView.isHidden = false
         mpPicker.isHidden = false
@@ -146,18 +125,10 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         self.pickerView(self.mpPicker, didSelectRow: 0, inComponent: 0)
     }
     
-    /**
-     Method to set up all important views on screen en redirect to based on current question
-     - Author: Sébastien De Pauw
-     */
     func openQuestion(question: Question?){
         openView.isHidden = false
     }
     
-    /**
-     Method to set up all important views on screen en redirect to based on current question
-     - Author: Sébastien De Pauw
-     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let questions = segue.destination as! SurveyCompleteViewController
         questions.roadMapItem = self.rmi
@@ -165,18 +136,10 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         questions.navigationItem.hidesBackButton = true
     }
     
-    /**
-     Method to set up all important views on screen en redirect to based on current question
-     - Author: Sébastien De Pauw
-     */
     enum Segues{
         static let toSurveyCompleted = "toSurveyCompleted"
     }
     
-    /**
-     Method to set up all important views on screen en redirect to based on current question
-     - Author: Sébastien De Pauw
-     */
     @objc
     func buttonAction() {
         questions.remove(at: 0)
@@ -199,10 +162,6 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
 
-    /**
-     Method to set up all important views on screen en redirect to based on current question
-     - Author: Sébastien De Pauw
-     */
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if(pickerView.tag == 1){
             return listOfAnswers.count
@@ -212,10 +171,6 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         return 0
     }
     
-    /**
-     Method to set up all important views on screen en redirect to based on current question
-     - Author: Sébastien De Pauw
-     */
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if(pickerView.tag == 1){
             return listOfAnswers[row]
@@ -225,10 +180,6 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         return ""
     }
     
-    /**
-     Method to set up all important views on screen en redirect to based on current question
-     - Author: Sébastien De Pauw
-     */
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if(pickerView.tag == 1){
             let answer = self.listOfAnswers[row]
@@ -242,10 +193,6 @@ class SurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
-    /**
-     Method to set up all important views on screen en redirect to based on current question
-     - Author: Sébastien De Pauw
-     */
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -274,26 +221,9 @@ extension SurveyViewController {
         AF.request(request).responseJSON { (response) in
             //debugPrint(response)
         }
-        
-//        AF.request(
-//            Globals.urlString + "/Questions/PostAnswerToQuestion/\(currentQuestion!.id)/\(empId)",
-//            method: .post,
-//            parameters: ["test"],
-//            encoding: JSONEncoding.default
-//        ).responseJSON { (response) in
-//            debugPrint(response)
-//                switch response.result {
-//                case .success(_):
-//                    print("succes")
-//                    break
-//                case .failure(let error):
-//                    print(error)
-//                    break
-//                }
-//            }
 
-        }
     }
+}
     
     
 
